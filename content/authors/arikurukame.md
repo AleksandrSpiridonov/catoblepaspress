@@ -25,3 +25,4 @@ tags:
 - [[voxcatoblepae|Vox Catoblepae]] 2025
 ## Контакты
 - [ARIKURUKAME на vk.com](https://vk.com/club219969961)
+- [@arikurukame](https://www.instagram.com/arikurukame)
