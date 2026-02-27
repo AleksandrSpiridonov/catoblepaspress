@@ -24,6 +24,8 @@ tags:
 - [Брунделяк моего сердца](https://vk.com/prbrundulyak), 2025
 ## Библиография
 - Поэма «Собачья родинка», самиздат, 2025
+## Музыка
+- Инди-поп группа «бобок», альбом [Спасибо, Мария](https://zvonko.link/spasibomaria), 2026
 ## Театр
 - [Signa](https://signa.dk/projects_pid=111178.html) — [Playthings](https://oteatre.info/signa-zapiski-iz-vosmogo-doma/), 2019
 ## Контакты
