@@ -1,5 +1,6 @@
 ---
 title: Viewer
+draft: "true"
 ---
 
 <div id="viewer-root" data-issue="001"></div>
