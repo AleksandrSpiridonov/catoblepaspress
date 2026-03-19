@@ -256,6 +256,69 @@
       overflow: hidden;
       margin: 0;
     }
+
+    /* Адаптация для мобильных устройств */
+    @media (max-width: 768px) {
+      #node-tooltip {
+        top: auto !important;
+        left: 50% !important;
+        bottom: 85px !important;
+        transform: translateX(-50%) !important;
+        width: 90% !important;
+        max-width: 340px;
+        box-sizing: border-box;
+      }
+      #bottom-bar {
+        bottom: 15px;
+        flex-direction: column;
+        gap: 8px;
+      }
+      #nav-text {
+        font-size: 9px;
+        padding: 4px 10px;
+        text-align: center;
+        max-width: 90%;
+        box-sizing: border-box;
+        line-height: 1.2;
+      }
+      #timeline-container {
+        width: 90%;
+        padding: 6px 14px;
+        box-sizing: border-box;
+        margin-bottom: 0;
+        justify-content: space-between;
+      }
+      #timeline-slider {
+        width: auto !important;
+        flex: 1;
+        margin: 0 10px;
+      }
+      #legend-overlay {
+        top: 70px;
+        right: 15px;
+        min-width: 120px;
+        padding: 12px;
+      }
+      #search-input {
+        width: 140px;
+      }
+      #fullscreen-btn {
+        top: 20px;
+        right: 15px;
+        padding: 8px;
+        font-size: 0; /* Скрываем текст "На весь экран" */
+        gap: 0;
+      }
+      #fullscreen-btn svg {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+      }
+      #settings-panel {
+        left: 15px;
+        width: 260px;
+      }
+    }
   </style>
   <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
   <script src="https://unpkg.com/three-spritetext@1.8.1/dist/three-spritetext.min.js"></script>
