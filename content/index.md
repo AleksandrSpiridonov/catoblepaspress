@@ -12,6 +12,7 @@ tags:
  
 Добро пожаловать на сайт издательства и журнала «Катоблепас»!
 
+
 > [!Quote] Si enim fallor, sum
 > Августин «О граде Божием», XI, 26 
 ## О нас
@@ -40,3 +41,7 @@ tags:
 - [telegram](https://t.me/catoblepaspress)
 - [e-mail](mailto:catoblepaspress@mail.ru)
 - Санкт-Петербург
+
+<div style="width: 100%; height: 700px; margin: 30px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+  <iframe src="/static/3d-graph.html" width="100%" height="100%" style="border:none; border-radius:12px; display: block;" allowfullscreen></iframe>
+</div>
