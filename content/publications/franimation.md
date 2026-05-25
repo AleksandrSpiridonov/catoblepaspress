@@ -6,7 +6,7 @@ description: Авторская подборка современной фран
 tags:
   - анимация
 ---
-# Французская анимация. Выбор [Ники Непутиной](https://t.me/animfolder)
+## Французская анимация. Выбор [Ники Непутиной](https://t.me/animfolder)
 
 ### [NOIR-SOLEIL | Marie Larrivé](https://vimeo.com/1122149267), 2021
 <div class="video-wrapper">
