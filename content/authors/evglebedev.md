@@ -28,5 +28,5 @@ tags:
 ### Награды
 - [[voxcatoblepae|Vox Catoblepae]] 2025
 ## Контакты
-- [evglebedev.ru](https://evglebedev.ru/)
+- [Персональный сайт](https://evglebedev.catoblepaspress.ru/)
 - [Последний экземпляр](https://t.me/posleex) — телеграм канал. Истоки приходят в конце.
