@@ -5,7 +5,6 @@ description: Первый сборник стихов Евгения Лебед�
 aliases:
   - Ошибки молодости
 ---
-# Ошибки молодости
 ![[mistakesCover.webp]]
 ## Выходные данные
 *Лебедев Е. А.* Ошибки молодости. Оформление Е. Медведева. СПб: Катоблепас, 2024
@@ -13,6 +12,7 @@ aliases:
 На обложке: Евгений Медведев, два листа из серии «Жучки», 2024
 
 Возрастное ограничение: 18+  
+
 Объем: 32 стр. 
 Автор: [[evglebedev|Евгений Лебедев]]  
 Художник, автор шрифтов: [[medvedevartist|Евгений Медведев]]  
@@ -24,6 +24,6 @@ aliases:
 Картография поэтических порывов, закончившихся провалом.
 ## Читать
 - [LitRes](https://www.litres.ru/book/evgeniy-lebedev-33296062/oshibki-molodosti-71528653/) — PDF
-- [Лебедев Е. А. Ошибки молодости](https://evglebedev.ru/docs/collection/mistakes/) — текст
+- [Лебедев Е. А. Ошибки молодости](https://evglebedev.catoblepaspress.ru/docs/collection/mistakes/) — текст
 ### Электронная версия
 <iframe src="https://drive.google.com/file/d/12A8SHSEnoew6EPUscApkxGBtDBvAm--4/preview" width="100%" height="600"></iframe>

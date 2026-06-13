@@ -18,8 +18,9 @@ tags:
 ## О нас
 Экспериментальное инди-издательство «Катоблепас» основано в 2024 году [[asp|Александром Спиридоновым-мл.]]. Мы выпустили несколько поэтических [[published/index|книг]] в оформлении художника [[medvedevartist|Евгения Медведева]], одноименный [[journal/index|журнал]] нашего объединения, а также антологию Международной деканнале «[[voxcatoblepae|Vox Catoblepae]]».
 ## Издания
-- [[evglebedev|Евгений Лебедев]] [[mistakes|Ошибки молодости]], 2024
+- [[bellyinbelly|Маруся Навка]] [[biastape|косая бейка]], 2026
 - [[evglebedev|Евгений Лебедев]] [[anxiety|Тревога дней]], 2025
+- [[evglebedev|Евгений Лебедев]] [[mistakes|Ошибки молодости]], 2024
 ## Cтохастический журнал «Катоблепас»
 - [[№ 1 (1)|Выпуск № 1 (1)]]
 - [[№ 2 (2)|Выпуск № 2 (2)]]
@@ -42,7 +43,3 @@ tags:
 - [telegram](https://t.me/catoblepaspress)
 - [e-mail](mailto:catoblepaspress@mail.ru)
 - Санкт-Петербург
-
-<div style="width: 100%; height: 700px; margin: 30px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
-  <iframe src="/static/3d-graph.html" width="100%" height="100%" style="border:none; border-radius:12px; display: block;" allowfullscreen></iframe>
-</div>
