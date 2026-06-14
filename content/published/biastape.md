@@ -14,8 +14,7 @@ aliases:
 СДЭК **700 ₽**  
 ### Электронная версия
 **350 ₽**    
-**Формат:** EPUB  
-
+**Формат:** PDF
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdEbOzuysovGTcVuT2_FwNurZ3S6g1zyGsdZLbjpg3fY5AlrA/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
 
