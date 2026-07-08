@@ -18,7 +18,7 @@ tags:
 ## О нас
 Экспериментальное инди-издательство «Катоблепас» основано в 2024 году [[asp|Александром Спиридоновым-мл.]]. Мы выпустили несколько поэтических [[published/index|книг]] в оформлении художника [[medvedevartist|Евгения Медведева]], одноименный [[journal/index|журнал]] нашего объединения, а также антологию Международной деканнале «[[voxcatoblepae|Vox Catoblepae]]».
 ## Издания
-- *Claude Le Petit* [[lebordeldesmuses|Le Bordel des Muses]], 2026  
+- *Claude Le Petit* [[lebordeldesmuses|Le Bordel des Muses]], 2026 — open call на перевод 
 - *[[bellyinbelly|Маруся Навка]]* [[biastape|косая бейка]], 2026 — открыт предзаказ!
 - *[[evglebedev|Евгений Лебедев]]* [[anxiety|Тревога дней]], 2025
 - *[[evglebedev|Евгений Лебедев]]* [[mistakes|Ошибки молодости]], 2024
