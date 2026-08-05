@@ -5,7 +5,7 @@ import BodyConstructor from "./Body"
 import { JSResourceToScriptElement, StaticResources } from "../util/resources"
 import { FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
 import { clone } from "../util/clone"
-import { visit } from "unist-util-visit"
+import { SKIP, visit } from "unist-util-visit"
 import { Root, Element, ElementContent } from "hast"
 import { GlobalConfiguration } from "../cfg"
 import { i18n } from "../i18n"
@@ -98,32 +98,79 @@ function renderTranscludes(
               ],
             },
           ]
-          return
+          return SKIP
         }
-        visited.add(transcludeTarget)
 
         const page = componentData.allFiles.find((f) => f.slug === transcludeTarget)
         if (!page) {
-          return
+          return SKIP
         }
+        visited.add(transcludeTarget)
+        try {
+          let expanded = false
 
-        let blockRef = node.properties.dataBlock as string | undefined
-        if (blockRef?.startsWith("#^")) {
-          // block transclude
-          blockRef = blockRef.slice("#^".length)
-          let blockNode = page.blocks?.[blockRef]
-          if (blockNode) {
-            if (blockNode.tagName === "li") {
-              blockNode = {
-                type: "element",
-                tagName: "ul",
-                properties: {},
-                children: [blockNode],
+          let blockRef = node.properties.dataBlock as string | undefined
+          if (blockRef?.startsWith("#^")) {
+            // block transclude
+            blockRef = blockRef.slice("#^".length)
+            let blockNode = page.blocks?.[blockRef]
+            if (blockNode) {
+              if (blockNode.tagName === "li") {
+                blockNode = {
+                  type: "element",
+                  tagName: "ul",
+                  properties: {},
+                  children: [blockNode],
+                }
+              }
+
+              node.children = [
+                normalizeHastElement(blockNode, slug, transcludeTarget),
+                {
+                  type: "element",
+                  tagName: "a",
+                  properties: {
+                    href: inner.properties?.href,
+                    class: ["internal", "transclude-src"],
+                  },
+                  children: [
+                    { type: "text", value: i18n(cfg.locale).components.transcludes.linkToOriginal },
+                  ],
+                },
+              ]
+              expanded = true
+            }
+          } else if (blockRef?.startsWith("#") && page.htmlAst) {
+            // header transclude
+            blockRef = blockRef.slice(1)
+            let startIdx = undefined
+            let startDepth = undefined
+            let endIdx = undefined
+            for (const [i, el] of page.htmlAst.children.entries()) {
+              // skip non-headers
+              if (!(el.type === "element" && el.tagName.match(headerRegex))) continue
+              const depth = Number(el.tagName.substring(1))
+
+              // lookin for our blockref
+              if (startIdx === undefined || startDepth === undefined) {
+                // skip until we find the blockref that matches
+                if (el.properties?.id === blockRef) {
+                  startIdx = i
+                  startDepth = depth
+                }
+              } else if (depth <= startDepth) {
+                // looking for new header that is same level or higher
+                endIdx = i
+                break
               }
             }
 
+            if (startIdx === undefined) return SKIP
+
             node.children = [
-              normalizeHastElement(blockNode, slug, transcludeTarget),
+              ...(page.htmlAst.children.slice(startIdx, endIdx) as ElementContent[]).map((child) =>
+                normalizeHastElement(child as Element, slug, transcludeTarget),
+              ),
               {
                 type: "element",
                 tagName: "a",
@@ -133,79 +180,52 @@ function renderTranscludes(
                 ],
               },
             ]
+            expanded = true
+          } else if (page.htmlAst) {
+            // page transclude
+            node.children = [
+              {
+                type: "element",
+                tagName: "h1",
+                properties: {},
+                children: [
+                  {
+                    type: "text",
+                    value:
+                      page.frontmatter?.title ??
+                      i18n(cfg.locale).components.transcludes.transcludeOf({
+                        targetSlug: page.slug!,
+                      }),
+                  },
+                ],
+              },
+              ...(page.htmlAst.children as ElementContent[]).map((child) =>
+                normalizeHastElement(child as Element, slug, transcludeTarget),
+              ),
+              {
+                type: "element",
+                tagName: "a",
+                properties: { href: inner.properties?.href, class: ["internal", "transclude-src"] },
+                children: [
+                  { type: "text", value: i18n(cfg.locale).components.transcludes.linkToOriginal },
+                ],
+              },
+            ]
+            expanded = true
           }
-        } else if (blockRef?.startsWith("#") && page.htmlAst) {
-          // header transclude
-          blockRef = blockRef.slice(1)
-          let startIdx = undefined
-          let startDepth = undefined
-          let endIdx = undefined
-          for (const [i, el] of page.htmlAst.children.entries()) {
-            // skip non-headers
-            if (!(el.type === "element" && el.tagName.match(headerRegex))) continue
-            const depth = Number(el.tagName.substring(1))
 
-            // lookin for our blockref
-            if (startIdx === undefined || startDepth === undefined) {
-              // skip until we find the blockref that matches
-              if (el.properties?.id === blockRef) {
-                startIdx = i
-                startDepth = depth
-              }
-            } else if (depth <= startDepth) {
-              // looking for new header that is same level or higher
-              endIdx = i
-              break
-            }
+          if (expanded) {
+            renderTranscludes(
+              { type: "root", children: node.children },
+              cfg,
+              slug,
+              componentData,
+              visited,
+            )
           }
-
-          if (startIdx === undefined) {
-            return
-          }
-
-          node.children = [
-            ...(page.htmlAst.children.slice(startIdx, endIdx) as ElementContent[]).map((child) =>
-              normalizeHastElement(child as Element, slug, transcludeTarget),
-            ),
-            {
-              type: "element",
-              tagName: "a",
-              properties: { href: inner.properties?.href, class: ["internal", "transclude-src"] },
-              children: [
-                { type: "text", value: i18n(cfg.locale).components.transcludes.linkToOriginal },
-              ],
-            },
-          ]
-        } else if (page.htmlAst) {
-          // page transclude
-          node.children = [
-            {
-              type: "element",
-              tagName: "h1",
-              properties: {},
-              children: [
-                {
-                  type: "text",
-                  value:
-                    page.frontmatter?.title ??
-                    i18n(cfg.locale).components.transcludes.transcludeOf({
-                      targetSlug: page.slug!,
-                    }),
-                },
-              ],
-            },
-            ...(page.htmlAst.children as ElementContent[]).map((child) =>
-              normalizeHastElement(child as Element, slug, transcludeTarget),
-            ),
-            {
-              type: "element",
-              tagName: "a",
-              properties: { href: inner.properties?.href, class: ["internal", "transclude-src"] },
-              children: [
-                { type: "text", value: i18n(cfg.locale).components.transcludes.linkToOriginal },
-              ],
-            },
-          ]
+          return SKIP
+        } finally {
+          visited.delete(transcludeTarget)
         }
       }
     }
