@@ -169,8 +169,11 @@ plugins:
       position: left
       priority: 30
       group: toolbar
-  - source: "@quartz-community/reader-mode"
+  - source: "./plugins/language-switcher"
     enabled: true
+    options:
+      englishBaseUrl: https://en.catoblepaspress.ru
+      russianBaseUrl: https://catoblepaspress.ru
     layout:
       position: left
       priority: 35
@@ -231,11 +234,11 @@ layout:
     content: {}
     folder:
       exclude:
-        - reader-mode
+        - language-switcher
       positions:
         right: []
     tag:
       exclude:
-        - reader-mode
+        - language-switcher
       positions:
         right: []

@@ -1,0 +1,33 @@
+{
+  "name": "@catoblepas/language-switcher",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./dist/index.js",
+    "./components": "./dist/components/index.js",
+    "./package.json": "./package.json"
+  },
+  "quartz": {
+    "name": "language-switcher",
+    "displayName": "Language Switcher",
+    "description": "Links matching pages between the Russian and English Catoblepas sites.",
+    "category": "component",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 50,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "englishBaseUrl": "https://en.catoblepaspress.ru",
+      "russianBaseUrl": "https://catoblepaspress.ru"
+    },
+    "components": {
+      "LanguageSwitcher": {
+        "displayName": "Language Switcher",
+        "defaultPosition": "left",
+        "defaultPriority": 35
+      }
+    }
+  }
+}
