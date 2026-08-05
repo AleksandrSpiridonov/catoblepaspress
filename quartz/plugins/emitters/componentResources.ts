@@ -22,6 +22,7 @@ import {
 import { Features, transform } from "lightningcss"
 import { transform as transpile } from "esbuild"
 import { write } from "./helpers"
+import { yandexMetrikaScript } from "../../util/analytics"
 
 function hashContent(content: string | Buffer): string {
   return createHash("sha256").update(content).digest("hex").slice(0, 8)
@@ -111,6 +112,8 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
       
       document.head.appendChild(gtagScript);
     `)
+  } else if (cfg.analytics?.provider === "yandex") {
+    componentResources.afterDOMLoaded.push(yandexMetrikaScript(cfg.analytics.counterId))
   } else if (cfg.analytics?.provider === "plausible") {
     const plausibleHost = cfg.analytics.host ?? "https://plausible.io"
     componentResources.afterDOMLoaded.push(`

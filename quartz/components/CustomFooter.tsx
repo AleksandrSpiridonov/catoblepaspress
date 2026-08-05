@@ -7,8 +7,19 @@ interface Options {
 }
 
 const CustomFooter: QuartzComponentConstructor<Options> = (opts) => {
-  const Footer: QuartzComponent = ({ displayClass }) => (
+  const Footer: QuartzComponent = ({ displayClass, cfg }) => (
     <footer class={displayClass ?? ""}>
+      {cfg.analytics?.provider === "yandex" && (
+        <noscript>
+          <div>
+            <img
+              src={`https://mc.yandex.ru/watch/${cfg.analytics.counterId}`}
+              style="position:absolute; left:-9999px;"
+              alt=""
+            />
+          </div>
+        </noscript>
+      )}
       <div class="footer-top">
         <p class="copyright">{opts.copyrightText}</p>
         <ul class="footer-links">

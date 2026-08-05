@@ -5,7 +5,8 @@ configuration:
   enableSPA: true
   enablePopovers: true
   analytics:
-    provider: plausible
+    provider: yandex
+    counterId: 111323493
   locale: ru-RU
   baseUrl: catoblepaspress.ru
   ignorePatterns:
@@ -217,6 +218,7 @@ plugins:
     layout:
       position: beforeBody
       priority: 20
+      condition: not-index
   - source: "@quartz-community/tag-list"
     enabled: true
     layout:
