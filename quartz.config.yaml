@@ -16,7 +16,7 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Schibsted Grotesk
+      header: Source Sans Pro
       body: Source Sans Pro
       code: IBM Plex Mono
     colors:
@@ -101,8 +101,10 @@ plugins:
     enabled: true
     options:
       fontOrigin: googleFonts
-      header: Schibsted Grotesk
+      title: Source Sans Pro
+      header: Source Sans Pro
       body: Source Sans Pro
+      interface: Source Sans Pro
       code: IBM Plex Mono
   - source: "@quartz-community/remove-draft"
     enabled: true
