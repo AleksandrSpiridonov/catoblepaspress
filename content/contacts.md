@@ -1,6 +1,16 @@
 ---
 title: Контакты
+description: Связаться с издательством «Катоблепас», предложить проект или задать вопрос о заказе
 ---
-- [telegram](https://t.me/catoblepaspress)
-- [e-mail](mailto:catoblepaspress@mail.ru)
-- Санкт-Петербург
+## Связаться с издательством
+
+- **Telegram:** [@catoblepaspress](https://t.me/catoblepaspress) — новости, анонсы и новые выпуски
+- **E-mail:** [catoblepaspress@mail.ru](mailto:catoblepaspress@mail.ru) — заказы, сотрудничество и общие вопросы
+- **Город:** Санкт-Петербург
+
+Чтобы мы быстрее ответили, укажите в теме письма книгу, проект или характер предложения.
+
+## Участвовать
+
+- [[bookclub#Присоединиться|Книжный клуб]]
+- [[filmclub#Присоединиться|Киноклуб]]

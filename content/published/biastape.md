@@ -1,12 +1,14 @@
 ---
 title: косая бейка
-description: Сборник стихов Маруси Навки
+description: «косая бейка» Маруси Навки — сборник современной поэзии, доступный по предзаказу в печатной и электронной версиях
 aliases:
   - косая бейка
 ---
 ![[biastape.webp]]
 
 ## Заказать
+Выберите версию и заполните форму ниже. Если форма не открывается, напишите на [catoblepaspress@mail.ru](mailto:catoblepaspress@mail.ru) с темой «косая бейка».
+
 ### Печатная версия — предзаказ!
 **420 ₽**  ~~490 ₽~~  
 **Доставка**:   
@@ -15,6 +17,9 @@ aliases:
 ### Электронная версия
 **350 ₽**    
 **Формат:** PDF
+
+> [!info] Как оформить заказ
+> Заполните форму — издательство свяжется с вами для подтверждения заказа и оплаты.
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdEbOzuysovGTcVuT2_FwNurZ3S6g1zyGsdZLbjpg3fY5AlrA/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
 
