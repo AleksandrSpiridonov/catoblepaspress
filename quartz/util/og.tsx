@@ -7,8 +7,6 @@ import { FontSpecification, getFontSpecificationName, ThemeKey } from "./theme"
 import path from "path"
 import { QUARTZ } from "./path"
 import { formatDate, getDate } from "../components/Date"
-import readingTime from "reading-time"
-import { i18n } from "../i18n"
 import { styleText } from "util"
 
 const defaultHeaderWeight = [700]
@@ -186,12 +184,6 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
   // Format date if available
   const rawDate = getDate(cfg, fileData)
   const date = rawDate ? formatDate(rawDate, cfg.locale) : null
-
-  // Calculate reading time
-  const { minutes } = readingTime(fileData.text ?? "")
-  const readingTimeText = i18n(cfg.locale).components.contentMeta.readingTime({
-    minutes: Math.ceil(minutes),
-  })
 
   // Get tags if available
   const tags = fileData.frontmatter?.tags ?? []
