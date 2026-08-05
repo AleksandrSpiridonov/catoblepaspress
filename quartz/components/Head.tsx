@@ -1,7 +1,6 @@
 import { i18n } from "../i18n"
 import { FullSlug, getFileExtension, joinSegments, pathToRoot } from "../util/path"
 import { CSSResourceToStyleElement, JSResourceToScriptElement } from "../util/resources"
-import { googleFontHref, googleFontSubsetHref } from "../util/theme"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { unescapeHTML } from "../util/escape"
 
@@ -46,29 +45,6 @@ export default (() => {
         {coreStylesheet && <link rel="preload" href={coreStylesheet} as="style" />}
         {coreScript && coreScript.contentType === "external" && (
           <link rel="preload" href={coreScript.src} as="script" />
-        )}
-        {cfg.theme.cdnCaching && cfg.theme.fontOrigin === "googleFonts" && (
-          <>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-            <link rel="preload" href={googleFontHref(cfg.theme)} as="style" onLoad={(e) => { e.currentTarget.onload = null; e.currentTarget.rel = 'stylesheet'; }} />
-            <noscript><link rel="stylesheet" href={googleFontHref(cfg.theme)} /></noscript>
-            {cfg.theme.typography.title && (
-              <link rel="preload" href={googleFontSubsetHref(cfg.theme, cfg.pageTitle)} as="style" onLoad={(e) => { e.currentTarget.onload = null; e.currentTarget.rel = 'stylesheet'; }} />
-            )}
-            {cfg.theme.typography.title && (
-              <noscript><link rel="stylesheet" href={googleFontSubsetHref(cfg.theme, cfg.pageTitle)} /></noscript>
-            )}
-            <style dangerouslySetInnerHTML={{
-              __html: `
-                /* Critical font loading optimization */
-                body { font-display: swap; }
-                .copyright { font-weight: normal !important; }
-                h1, h2, h3, h4, h5, h6 { font-display: swap; }
-                p, div, span, a, li, ul, ol { font-display: swap; }
-              `
-            }} />
-          </>
         )}
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

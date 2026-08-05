@@ -1,6 +1,8 @@
 import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
 import * as ExternalPlugin from "./.quartz/plugins"
 import CustomFooter from "./quartz/components/CustomFooter"
+import LegacyOgImage from "./quartz/components/LegacyOgImage"
+import { componentRegistry } from "./quartz/components/registry"
 import type { ExplorerOptions } from "@quartz-community/explorer"
 
 const priorityOrder: Record<string, number> = {
@@ -32,6 +34,12 @@ const sortExplorerEntries: NonNullable<ExplorerOptions["sortFn"]> = (a, b) => {
 
 ExternalPlugin.Explorer({
   sortFn: sortExplorerEntries,
+})
+
+componentRegistry.setOptionOverrides("@quartz-community/og-image", {
+  colorScheme: "darkMode",
+  readingTimeText: () => "",
+  imageStructure: LegacyOgImage,
 })
 
 const footer = CustomFooter({

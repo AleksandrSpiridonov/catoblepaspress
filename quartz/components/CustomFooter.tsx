@@ -20,7 +20,7 @@ const CustomFooter: QuartzComponentConstructor<Options> = (opts) => {
         </ul>
       </div>
       <p>
-        Создано А. А. Спиридоновым-мл. с помощью{" "}
+        Создано А. А. Спиридоновым-мл с помощью{" "}
         <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a>
       </p>
     </footer>

@@ -3,7 +3,6 @@
 @use "./variables.scss" as *;
 @use "./syntax.scss";
 @use "./callouts.scss";
-@use "./font-optimization.scss";
 
 html {
   scroll-behavior: smooth;
@@ -22,7 +21,6 @@ body {
   background-color: var(--light);
   font-family: var(--bodyFont);
   color: var(--darkgray);
-  font-display: swap;
 }
 
 .text-highlight {

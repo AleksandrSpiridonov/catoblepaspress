@@ -99,6 +99,11 @@ plugins:
     order: 80
   - source: "@quartz-community/quartz-fonts"
     enabled: true
+    options:
+      fontOrigin: googleFonts
+      header: Schibsted Grotesk
+      body: Source Sans Pro
+      code: IBM Plex Mono
   - source: "@quartz-community/remove-draft"
     enabled: true
   - source: "@quartz-community/alias-redirects"
@@ -178,6 +183,12 @@ plugins:
       position: left
       priority: 35
       group: toolbar
+  - source: "@quartz-community/reader-mode"
+    enabled: true
+    layout:
+      position: left
+      priority: 40
+      group: toolbar
   - source: "@quartz-community/spacer"
     enabled: true
     layout:
@@ -235,10 +246,12 @@ layout:
     folder:
       exclude:
         - language-switcher
+        - reader-mode
       positions:
         right: []
     tag:
       exclude:
         - language-switcher
+        - reader-mode
       positions:
         right: []

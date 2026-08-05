@@ -17,9 +17,21 @@
 }
 
 body {
+  font-family: var(--bodyFont);
   hyphens: auto;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
+}
+
+// Quartz Fonts emits heading rules without a generic fallback. Keep the
+// original sans-serif typography when Google Fonts is slow or unavailable.
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6 {
+  font-family: var(--headerFont);
 }
 
 footer {

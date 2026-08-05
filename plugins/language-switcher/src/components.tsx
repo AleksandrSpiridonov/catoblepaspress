@@ -29,18 +29,23 @@ const styles = `.language-switcher {
 
 export const LanguageSwitcher: QuartzComponentConstructor<Options> = (opts) => {
   const Component: QuartzComponent = ({ cfg, fileData, displayClass }: QuartzComponentProps) => {
-    const currentHostname = new URL(`https://${cfg.baseUrl ?? ""}`).hostname
+    const configuredBase = cfg.baseUrl ?? opts.russianBaseUrl
+    const currentUrl = new URL(
+      configuredBase.includes("://") ? configuredBase : `https://${configuredBase}`,
+    )
+    const currentHostname = currentUrl.hostname
     const englishHostname = new URL(opts.englishBaseUrl).hostname
     const isEnglishSite = currentHostname === englishHostname
-    const targetBase = isEnglishSite ? opts.russianBaseUrl : opts.englishBaseUrl
+    const targetUrl = new URL(isEnglishSite ? opts.russianBaseUrl : opts.englishBaseUrl)
     const slug = fileData.slug ?? "index"
-    const path = slug === "index" ? "/" : `/${slug}`
+    const basePath = targetUrl.pathname.replace(/\/$/, "")
+    targetUrl.pathname = slug === "index" ? `${basePath}/` : `${basePath}/${slug}`
 
     return (
       <a
         aria-label={isEnglishSite ? "Перейти на русскую версию" : "Switch to English"}
         class={`${displayClass ?? ""} language-switcher`.trim()}
-        href={`${targetBase}${path}`}
+        href={targetUrl.toString()}
       >
         {isEnglishSite ? "RU" : "EN"}
       </a>

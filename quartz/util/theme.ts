@@ -194,31 +194,6 @@ ${stylesheet.join("\n\n")}
   --codeFont: "${getFontSpecificationName(theme.typography.code)}", ${DEFAULT_MONO};
 }
 
-/* Font loading optimization */
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400 600;
-  font-display: swap;
-  src: local('Source Sans Pro'), local('SourceSansPro-Regular');
-}
-
-@font-face {
-  font-family: 'Schibsted Grotesk';
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: local('Schibsted Grotesk'), local('SchibstedGrotesk-Regular');
-}
-
-@font-face {
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('IBM Plex Mono'), local('IBMPlexMono-Regular');
-}
-
 :root[saved-theme="dark"] {
   --light: ${theme.colors.darkMode.light};
   --lightgray: ${theme.colors.darkMode.lightgray};

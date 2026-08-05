@@ -20,17 +20,22 @@ const styles = `.language-switcher {
 
 const LanguageSwitcher = (opts) => {
   const Component = ({ cfg, fileData, displayClass }) => {
-    const currentHostname = new URL(`https://${cfg.baseUrl ?? ""}`).hostname
+    const configuredBase = cfg.baseUrl ?? opts.russianBaseUrl
+    const currentUrl = new URL(
+      configuredBase.includes("://") ? configuredBase : `https://${configuredBase}`,
+    )
+    const currentHostname = currentUrl.hostname
     const englishHostname = new URL(opts.englishBaseUrl).hostname
     const isEnglishSite = currentHostname === englishHostname
-    const targetBase = isEnglishSite ? opts.russianBaseUrl : opts.englishBaseUrl
+    const targetUrl = new URL(isEnglishSite ? opts.russianBaseUrl : opts.englishBaseUrl)
     const slug = fileData.slug ?? "index"
-    const path = slug === "index" ? "/" : `/${slug}`
+    const basePath = targetUrl.pathname.replace(/\/$/, "")
+    targetUrl.pathname = slug === "index" ? `${basePath}/` : `${basePath}/${slug}`
 
     return jsx("a", {
       "aria-label": isEnglishSite ? "Перейти на русскую версию" : "Switch to English",
       class: `${displayClass ?? ""} language-switcher`.trim(),
-      href: `${targetBase}${path}`,
+      href: targetUrl.toString(),
       children: isEnglishSite ? "RU" : "EN",
     })
   }
