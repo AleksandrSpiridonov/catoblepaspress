@@ -17,6 +17,7 @@ _[[medvedevartist|Евгений Медведев]] Город, 2018_
 > - <strong><a href="./published/biastape#заказать" class="internal" data-metrika-goal="preorder_click">Предзаказать «косую бейку» Маруси Навки</a></strong> — печатная и электронная версии
 > - <strong><a href="./journal/" class="internal" data-metrika-goal="journal_click">Читать стохастический журнал</a></strong> — поэзия, проза, эссе, визуальное искусство, кино и музыка
 > - <strong><a href="./projects/filmclub" class="internal" data-metrika-goal="participation_click">Обсудить <em>Limite</em> в киноклубе 10 августа 2026 года</a></strong> — встреча в 19:00 МСК
+> - <strong><a href="./projects/bookclub" class="internal" data-metrika-goal="participation_click">Обсудить «Странника» Александра Вельтмана в книжном клубе 29 августа 2026 года</a></strong> — присоединиться к чтению и встрече
 
 > [!Quote] Si enim fallor, sum
 > Августин «О граде Божием», XI, 26
