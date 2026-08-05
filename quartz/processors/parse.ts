@@ -14,6 +14,7 @@ import { QuartzLogger } from "../util/log"
 import { trace } from "../util/trace"
 import { BuildCtx, WorkerSerializableBuildCtx } from "../util/ctx"
 import { styleText } from "util"
+import { i18n } from "../i18n"
 
 export type QuartzMdProcessor = Processor<MDRoot, MDRoot, MDRoot>
 export type QuartzHtmlProcessor = Processor<undefined, MDRoot, HTMLRoot>
@@ -35,10 +36,11 @@ export function createMdProcessor(ctx: BuildCtx): QuartzMdProcessor {
 
 export function createHtmlProcessor(ctx: BuildCtx): QuartzHtmlProcessor {
   const transformers = ctx.cfg.plugins.transformers
+  const footnoteLabel = i18n(ctx.cfg.configuration.locale).components.footnotes?.title
   return (
     unified()
       // MD AST -> HTML AST
-      .use(remarkRehype, { allowDangerousHtml: true })
+      .use(remarkRehype, { allowDangerousHtml: true, footnoteLabel })
       // HTML AST -> HTML AST transforms
       .use(transformers.flatMap((plugin) => plugin.htmlPlugins?.(ctx) ?? []))
   )
@@ -171,50 +173,49 @@ export async function parseMarkdown(ctx: BuildCtx, fps: FilePath[]): Promise<Pro
       maxWorkers: concurrency,
       workerType: "thread",
     })
-    const errorHandler = (err: any) => {
-      console.error(err)
-      process.exit(1)
-    }
-
     const serializableCtx: WorkerSerializableBuildCtx = {
       buildId: ctx.buildId,
       argv: ctx.argv,
       allSlugs: ctx.allSlugs,
       allFiles: ctx.allFiles,
       incremental: ctx.incremental,
+      virtualPages: [],
     }
 
-    const textToMarkdownPromises: WorkerPromise<MarkdownContent[]>[] = []
-    let processedFiles = 0
-    for (const chunk of chunks(fps, CHUNK_SIZE)) {
-      textToMarkdownPromises.push(pool.exec("parseMarkdown", [serializableCtx, chunk]))
+    try {
+      const textToMarkdownPromises: WorkerPromise<MarkdownContent[]>[] = []
+      let processedFiles = 0
+      for (const chunk of chunks(fps, CHUNK_SIZE)) {
+        textToMarkdownPromises.push(pool.exec("parseMarkdown", [serializableCtx, chunk]))
+      }
+
+      const mdResults: Array<MarkdownContent[]> = await Promise.all(
+        textToMarkdownPromises.map(async (promise) => {
+          const result = await promise
+          processedFiles += result.length
+          log.updateText(`text->markdown ${styleText("gray", `${processedFiles}/${fps.length}`)}`)
+          return result
+        }),
+      )
+
+      const markdownToHtmlPromises: WorkerPromise<ProcessedContent[]>[] = []
+      processedFiles = 0
+      for (const mdChunk of mdResults) {
+        markdownToHtmlPromises.push(pool.exec("processHtml", [serializableCtx, mdChunk]))
+      }
+      const results: ProcessedContent[][] = await Promise.all(
+        markdownToHtmlPromises.map(async (promise) => {
+          const result = await promise
+          processedFiles += result.length
+          log.updateText(`markdown->html ${styleText("gray", `${processedFiles}/${fps.length}`)}`)
+          return result
+        }),
+      )
+
+      res = results.flat()
+    } finally {
+      await pool.terminate()
     }
-
-    const mdResults: Array<MarkdownContent[]> = await Promise.all(
-      textToMarkdownPromises.map(async (promise) => {
-        const result = await promise
-        processedFiles += result.length
-        log.updateText(`text->markdown ${styleText("gray", `${processedFiles}/${fps.length}`)}`)
-        return result
-      }),
-    ).catch(errorHandler)
-
-    const markdownToHtmlPromises: WorkerPromise<ProcessedContent[]>[] = []
-    processedFiles = 0
-    for (const mdChunk of mdResults) {
-      markdownToHtmlPromises.push(pool.exec("processHtml", [serializableCtx, mdChunk]))
-    }
-    const results: ProcessedContent[][] = await Promise.all(
-      markdownToHtmlPromises.map(async (promise) => {
-        const result = await promise
-        processedFiles += result.length
-        log.updateText(`markdown->html ${styleText("gray", `${processedFiles}/${fps.length}`)}`)
-        return result
-      }),
-    ).catch(errorHandler)
-
-    res = results.flat()
-    await pool.terminate()
   }
 
   log.end(`Parsed ${res.length} Markdown files in ${perf.timeSince()}`)
