@@ -16,17 +16,14 @@ _[[medvedevartist|Евгений Медведев]] Город, 2018_
 >
 > - <strong><a href="./published/biastape#заказать" class="internal" data-metrika-goal="preorder_click">Предзаказать «косую бейку» Маруси Навки</a></strong> — печатная и электронная версии
 > - <strong><a href="./journal/" class="internal" data-metrika-goal="journal_click">Читать стохастический журнал</a></strong> — поэзия, проза, эссе, визуальное искусство, кино и музыка
-> - <strong><a href="./projects/filmclub" class="internal" data-metrika-goal="participation_click">Обсудить <em>Limite</em> в киноклубе 10 августа 2026 года</a></strong> — встреча в 19:00 МСК
+> - <strong><a href="./projects/filmclub" class="internal" data-metrika-goal="participation_click">Обсудить <em>El Espíritu de la colmena</em> в киноклубе 24 августа 2026 года</a></strong> — встреча в 19:00 МСК
 > - <strong><a href="./projects/bookclub" class="internal" data-metrika-goal="participation_click">Обсудить «Странника» Александра Вельтмана в книжном клубе 29 августа 2026 года</a></strong> — присоединиться к чтению и встрече
-
-> [!Quote] Si enim fallor, sum
-> Августин «О граде Божием», XI, 26
 
 ## Что мы делаем
 
 - **[[published/index|Издаём книги]]** — современную поэзию и экспериментальные литературные проекты
 - **[[journal/index|Выпускаем журнал]]** — поэзию, прозу, эссе, визуальное искусство, короткий метр и музыку
-- **[[projects/index|Собираем сообщества]]** — книжный и киноклуб, конкурсы, перфолекции и междисциплинарные проекты
+- **[[projects/index|Собираем сообщества]]** — [[bookclub|книжный]] и [[filmclub|киноклуб]], конкурсы, перфолекции и междисциплинарные проекты
 
 Издательство основано в 2024 году [[asp|Александром Спиридоновым-мл.]]. Подробнее — [[about|об издательстве и редакции]].
 
@@ -54,3 +51,6 @@ _[[medvedevartist|Евгений Медведев]] Город, 2018_
 - **Письма «Катоблепаса»** — новые книги, выпуски и встречи один–два раза в месяц. <a href="mailto:catoblepaspress@mail.ru?subject=Письма%20Катоблепаса&amp;body=Прошу%20подписать%20меня%20на%20письма%20Катоблепаса." data-metrika-goal="newsletter_click">Подписаться письмом</a>
 - [catoblepaspress@mail.ru](mailto:catoblepaspress@mail.ru)
 - [[contacts|Все способы связи]]
+
+> [!Quote] Si enim fallor, sum
+> Августин «О граде Божием», XI, 26
