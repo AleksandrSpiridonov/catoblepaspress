@@ -6,10 +6,9 @@ aliases:
 tags:
   - кино
   - перевод
-  - Лимите
 ---
 
-# «Лимите» (*Limite*)
+# «Лимите» (*[[publications/translations/limite/index|Limite]]*)
 
 *Винисиус ди Морайс (Vinicius de Moraes). Перевод с португальского заметки на стр. 6 журнала **Cine Clube**. Первоначально опубликована в газете «A Manhã», около 1941–1942 годов.*
 

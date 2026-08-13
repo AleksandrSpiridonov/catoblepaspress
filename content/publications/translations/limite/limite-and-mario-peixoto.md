@@ -6,10 +6,9 @@ aliases:
 tags:
   - кино
   - перевод
-  - Лимите
 ---
 
-# «Лимите» (*Limite*) и Мариу Пейшоту (Mário Peixoto)
+# «Лимите» (*[[publications/translations/limite/index|Limite]]*) и Мариу Пейшоту (Mário Peixoto)
 
 Перевод с португальского материалов со стр. 2–5 журнала «Сине Клубе» (*Cine Clube*). В исходнике — редакционная заметка и интервью профессора Плиниу Сюссекинда Роши (Plínio Sussekind Rocha), взятое Паулу Эмилиу Саллишем Гомишем (Paulo Emílio Salles Gomes) и опубликованное в журнале «Возраст кино» (*L’Âge du Cinéma*).
 

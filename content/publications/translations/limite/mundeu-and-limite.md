@@ -6,10 +6,9 @@ aliases:
 tags:
   - кино
   - перевод
-  - Лимите
 ---
 
-# «Мундеу» (*Mundéu*) и «Лимите» (*[[limite|Limite]]*)
+# «Мундеу» (*Mundéu*) и «Лимите» (*[[publications/translations/limite/index|Limite]]*)
 
 *Отавиу ди Фария (Otávio de Faria). Перевод с португальского. Страница 10 журнала **Cine Clube**.*
 
