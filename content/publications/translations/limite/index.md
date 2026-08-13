@@ -15,6 +15,8 @@ tags:
 
 Полные выходные данные: *Cine-Clube: revista da Federação dos Cine-Clubes do Rio de Janeiro*. Год I, № 1, III триместр 1960 года (на обложке — *Primavera 1960*). Номер посвящён «Лимите»: в нём собраны статьи о фильме, интервью, сведения о Мариу Пейшоту и фрагменты сценариев.
 
+Находке журнала обязан [статье на сайте Федерального университета Риу-Гранди-ду-Сул (UFRGS)](https://www.ufrgs.br/mariopeixoto/en/biography/), посвященной биографии _Mário Peixoto_, где автор разместил с благодарностью _Glênio Póvoas_ [сканы журнала _Cine-Clube_](https://drive.google.com/drive/folders/1xcEgGG8zMbCrxOwM_CBOY8oeL4hrSGOV?usp=sharing). Наша сердечная благодарность им обоим, и в свою очередь [[mario-peixoto-biography|переводим и их статью]] для наших читателей. Также в статье приводится журнал "[O fan](https://drive.google.com/drive/folders/1PMFc4zbfsdYbI3VI7Rzetk1IslQnhO8B?usp=sharing)", издававшийся Чаплин клубом, одним из организаторов которого был юный Мариу Пейшоту, а также подробная библиография.
+
 ## Материалы
 ### Cine-Clube: revista da Federação dos Cine-Clubes do Rio de Janeiro, № 1, 1960
 - [[limite-and-mario-peixoto|«Лимите» и Мариу Пейшоту: редакционная заметка и интервью с Плиниу Сюссекиндом Рошей]] — об истории фильма, его сюжете, ритме и месте в немом кинематографе
