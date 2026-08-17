@@ -15,6 +15,7 @@ _[[medvedevartist|Евгений Медведев]] Город, 2018_
 > [!abstract] Сейчас в «Катоблепасе»
 >
 > - <strong><a href="./published/biastape#заказать" class="internal" data-metrika-goal="preorder_click">Предзаказать «косую бейку» Маруси Навки</a></strong> — печатная и электронная версии
+> - <strong><a href="./interviews/marusya-navka-kosaya-beyka" class="internal">Посмотреть и прочитать интервью с Марусей Навкой</a></strong> — о «косой бейке», стихах, музыке и театре
 > - <strong><a href="./journal/" class="internal" data-metrika-goal="journal_click">Читать стохастический журнал</a></strong> — поэзия, проза, эссе, визуальное искусство, кино и музыка
 > - <strong><a href="./projects/filmclub" class="internal" data-metrika-goal="participation_click">Обсудить <em>Дух улья</em> Виктора Эрисе в киноклубе 24 августа 2026 года</a></strong> — встреча в 19:00 МСК
 > - <strong><a href="./projects/bookclub" class="internal" data-metrika-goal="participation_click">Обсудить «Странника» Александра Вельтмана в книжном клубе 29 августа 2026 года</a></strong> — присоединиться к чтению и встрече
@@ -24,6 +25,7 @@ _[[medvedevartist|Евгений Медведев]] Город, 2018_
 - **[[published/index|Издаём книги]]** — современную поэзию и экспериментальные литературные проекты
 - **[[journal/index|Выпускаем журнал]]** — поэзию, прозу, эссе, визуальное искусство, короткий метр и музыку
 - **[[projects/index|Собираем сообщества]]** — [[bookclub|книжный]] и [[filmclub|киноклуб]], конкурсы, перфолекции и междисциплинарные проекты
+- **[[interviews/index|Публикуем интервью]]** — разговоры с авторами, художниками и участниками наших проектов
 
 Издательство основано в 2024 году [[asp|Александром Спиридоновым-мл.]]. Подробнее — [[about|об издательстве и редакции]].
 
@@ -44,6 +46,11 @@ _[[medvedevartist|Евгений Медведев]] Город, 2018_
 - [[bookclub|Книжный клуб Е. Лебедева]]
 - [[filmclub|Киноклуб им. А. Сергеева]]
 - [[projects/index|Все проекты]]
+
+## Интервью
+
+- [[interviews/marusya-navka-kosaya-beyka|Маруся Навка: о «косой бейке», стихах, музыке и театре]]
+- [[interviews/index|Все интервью]]
 
 ## Следить и связаться
 

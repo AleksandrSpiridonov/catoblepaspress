@@ -6,6 +6,9 @@ aliases:
 ---
 ![[biastape.webp]]
 
+> [!tip] Интервью с автором
+> Посмотрите и прочитайте [[interviews/marusya-navka-kosaya-beyka|интервью с Марусей Навкой]] о «косой бейке», стихах, музыке и театре.
+
 ## Заказать
 Выберите версию и заполните форму ниже. Если форма не открывается, напишите на [catoblepaspress@mail.ru](mailto:catoblepaspress@mail.ru) с темой «косая бейка».
 
