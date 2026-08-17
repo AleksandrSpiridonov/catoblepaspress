@@ -10,6 +10,7 @@ const priorityOrder: Record<string, number> = {
   Киноклуб: 2,
   "Об издательстве": 3,
   Контакты: 4,
+  Документы: 5,
 }
 
 const sortExplorerEntries: NonNullable<ExplorerOptions["sortFn"]> = (a, b) => {
@@ -46,6 +47,7 @@ const footer = CustomFooter({
   copyrightText: "© 2025–2026 Издательство «Катоблепас»",
   links: {
     Telegram: "https://t.me/catoblepaspress",
+    Документы: "/documents",
   },
 })
 

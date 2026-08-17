@@ -7,19 +7,8 @@ interface Options {
 }
 
 const CustomFooter: QuartzComponentConstructor<Options> = (opts) => {
-  const Footer: QuartzComponent = ({ displayClass, cfg }) => (
+  const Footer: QuartzComponent = ({ displayClass }) => (
     <footer class={displayClass ?? ""}>
-      {cfg.analytics?.provider === "yandex" && (
-        <noscript>
-          <div>
-            <img
-              src={`https://mc.yandex.ru/watch/${cfg.analytics.counterId}`}
-              style="position:absolute; left:-9999px;"
-              alt=""
-            />
-          </div>
-        </noscript>
-      )}
       <div class="footer-top">
         <p class="copyright">{opts.copyrightText}</p>
         <ul class="footer-links">
@@ -31,8 +20,16 @@ const CustomFooter: QuartzComponentConstructor<Options> = (opts) => {
         </ul>
       </div>
       <p>
-        Создано А. А. Спиридоновым-мл с помощью{" "}
+        Создано <a href="/authors/asp">А. А. Спиридоновым-мл.</a> с помощью{" "}
         <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a>
+        {" · "}
+        <button
+          id="cookie-settings"
+          type="button"
+          class="cookie-settings"
+        >
+          Настройки cookie
+        </button>
       </p>
     </footer>
   )
