@@ -35,5 +35,7 @@ tags:
 - [[№ 21 (7)|Выпуск № 21 (7)]] — интервью
 ## Издания
 - [Медведев Е. Новые идеи в изобразительном искусстве, 2025](https://drive.google.com/file/d/1OdHTcToFmV3ydrjbUi3wKwxgRIBBTWo1/view)
+## Интервью
+- [[interviews/evgeny-medvedev-artistic-perception|«Произведение искусства — это модель зрительного восприятия»]], февраль 2026
 ## Контакты
 - [VK](https://vk.com/medvedevartistgroup)
