@@ -42,11 +42,11 @@ jobs:
           path: public
           retention-days: 1
 
-  deploy-fair:
+  publish-fair:
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
     steps:
       - name: Download site build
         uses: actions/download-artifact@v4
@@ -54,26 +54,13 @@ jobs:
           name: site-build-${{ github.sha }}
           path: public
 
-      - name: Configure SSH
-        run: |
-          install -m 700 -d ~/.ssh
-          printf '%s\n' "${{ secrets.FAIR_DEPLOY_KEY }}" > ~/.ssh/fair_deploy
-          chmod 600 ~/.ssh/fair_deploy
-          printf '%s\n' "${{ secrets.FAIR_SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
-          chmod 600 ~/.ssh/known_hosts
-
-      - name: Deploy atomically to Fair
-        env:
-          DEPLOY_HOST: 188.225.74.191
-          DEPLOY_USER: catoblepas-deploy
-          RELEASE: /var/www/catoblepaspress/releases/${{ github.sha }}
-        run: |
-          ssh -i ~/.ssh/fair_deploy "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$RELEASE'"
-          rsync -az --delete --chmod=D755,F644 \
-            -e "ssh -i ~/.ssh/fair_deploy" \
-            public/ "$DEPLOY_USER@$DEPLOY_HOST:$RELEASE/"
-          ssh -i ~/.ssh/fair_deploy "$DEPLOY_USER@$DEPLOY_HOST" \
-            "test -f '$RELEASE/index.html' && ln -sfn '$RELEASE' /var/www/catoblepaspress/current.next && mv -Tf /var/www/catoblepaspress/current.next /var/www/catoblepaspress/current"
+      - name: Publish build for Fair
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: fair-site
+          publish_dir: ./public
+          force_orphan: true
  
   deploy:
     needs: build
