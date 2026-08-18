@@ -12,7 +12,7 @@ date: 2026-08-01
 > Видео опубликовано в [Telegram-канале издательства «Катоблепас»](https://t.me/catoblepaspress/239)  в [[№ 55 (9)|55 выпуске]] журнала Катоблепас
 
 
-<iframe src="https://t.me/catoblepaspress/239?embed=1" width="100%" height="720" frameborder="0" scrolling="no" allowfullscreen title="Интервью с Марусей Навкой в Telegram">Загрузка видео из Telegram…</iframe>
+<iframe src="https://t.me/catoblepaspress/247?embed=1" width="100%" height="720" frameborder="0" scrolling="no" allowfullscreen title="Интервью с Марусей Навкой в Telegram">Загрузка видео из Telegram…</iframe>
 
 **Собеседники:** [[asp|Александр Спиридонов-мл.]] и [[bellyinbelly|Маруся Навка]]  
 **Продолжительность:** 24:02
