@@ -34,6 +34,46 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: public
+
+      - name: Upload Fair deployment artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-build-${{ github.sha }}
+          path: public
+          retention-days: 1
+
+  deploy-fair:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Download site build
+        uses: actions/download-artifact@v4
+        with:
+          name: site-build-${{ github.sha }}
+          path: public
+
+      - name: Configure SSH
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "${{ secrets.FAIR_DEPLOY_KEY }}" > ~/.ssh/fair_deploy
+          chmod 600 ~/.ssh/fair_deploy
+          printf '%s\n' "${{ secrets.FAIR_SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Deploy atomically to Fair
+        env:
+          DEPLOY_HOST: 188.225.74.191
+          DEPLOY_USER: catoblepas-deploy
+          RELEASE: /var/www/catoblepaspress/releases/${{ github.sha }}
+        run: |
+          ssh -i ~/.ssh/fair_deploy "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$RELEASE'"
+          rsync -az --delete --chmod=D755,F644 \
+            -e "ssh -i ~/.ssh/fair_deploy" \
+            public/ "$DEPLOY_USER@$DEPLOY_HOST:$RELEASE/"
+          ssh -i ~/.ssh/fair_deploy "$DEPLOY_USER@$DEPLOY_HOST" \
+            "test -f '$RELEASE/index.html' && ln -sfn '$RELEASE' /var/www/catoblepaspress/current.next && mv -Tf /var/www/catoblepaspress/current.next /var/www/catoblepaspress/current"
  
   deploy:
     needs: build
