@@ -5,7 +5,8 @@ description: Связаться с издательством «Катоблеп
 ## Связаться с издательством
 
 - **Telegram:** [@catoblepaspress](https://t.me/catoblepaspress) — новости, анонсы и новые выпуски
-- **E-mail:** [catoblepaspress@mail.ru](mailto:catoblepaspress@mail.ru) — заказы, сотрудничество и общие вопросы
+- **Основная почта:** [mail@catoblepaspress.ru](mailto:mail@catoblepaspress.ru) — заказы, сотрудничество и общие вопросы
+- **Прежняя почта:** [catoblepaspress@mail.ru](mailto:catoblepaspress@mail.ru) — продолжает работать на время перехода
 - **Город:** Санкт-Петербург
 
 Чтобы мы быстрее ответили, укажите в теме письма книгу, проект или характер предложения.

@@ -25,4 +25,4 @@ aliases:
 
 **[[mistakes#Читать|Читать →]]**
 
-Вопросы о заказах и изданиях: [catoblepaspress@mail.ru](mailto:catoblepaspress@mail.ru).
+Вопросы о заказах и изданиях: [mail@catoblepaspress.ru](mailto:mail@catoblepaspress.ru).

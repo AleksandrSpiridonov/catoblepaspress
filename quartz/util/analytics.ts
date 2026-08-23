@@ -28,23 +28,29 @@ export function yandexMetrikaScript(counterId: number): string {
       });
     }
 
-    function getCatoblepasConsent() {
+    function hasCatoblepasAnalyticsConsent() {
       try {
-        return localStorage.getItem(catoblepasConsentKey);
+        return localStorage.getItem(catoblepasConsentKey) === 'granted';
       } catch {
-        return null;
+        return false;
       }
     }
 
-    function setCatoblepasConsent(value) {
+    function grantCatoblepasAnalyticsConsent() {
       try {
-        localStorage.setItem(catoblepasConsentKey, value);
+        localStorage.setItem(catoblepasConsentKey, 'granted');
       } catch {
-        // If storage is unavailable, the choice applies only to this page view.
+        // If storage is unavailable, consent applies only to this page view.
       }
     }
 
-    function clearCatoblepasMetrikaCookies() {
+    function revokeCatoblepasAnalyticsConsent() {
+      try {
+        localStorage.removeItem(catoblepasConsentKey);
+      } catch {
+        // The current page will still reload and stop the active counter.
+      }
+
       const cookieDomain = '.' + location.hostname.replace(/^www\./, '');
       document.cookie.split(';').forEach((cookie) => {
         const name = cookie.split('=')[0]?.trim();
@@ -60,44 +66,52 @@ export function yandexMetrikaScript(counterId: number): string {
 
     function showCatoblepasCookieBanner() {
       closeCatoblepasCookieBanner();
+      const consentGranted = hasCatoblepasAnalyticsConsent();
 
       const banner = document.createElement('section');
       banner.id = 'cookie-consent';
       banner.className = 'cookie-consent';
-      banner.setAttribute('aria-label', 'Настройки аналитических файлов cookie');
+      banner.setAttribute('aria-label', 'Согласие на аналитические файлы cookie');
       banner.innerHTML = \`
+        <button type="button" class="cookie-consent__close" data-cookie-consent-close aria-label="Закрыть">×</button>
         <div class="cookie-consent__text">
           <strong>Аналитические cookie</strong>
-          <p>Мы используем cookie Яндекс Метрики, чтобы понимать, какие материалы читают. Аналитика включится только с вашего согласия.</p>
+          <p>
+            \${consentGranted
+              ? 'Аналитика Яндекс Метрики разрешена. Вы можете отозвать согласие и удалить аналитические cookie сайта.'
+              : 'Разрешите cookie Яндекс Метрики, чтобы мы могли понимать, достигает ли сайт целей издательства: какие материалы читают и какие страницы помогают перейти к заказу, подписке или встрече. Без вашего согласия аналитика не загружается.'}
+          </p>
           <a href="/documents/cookies">Подробнее</a>
         </div>
         <div class="cookie-consent__actions">
-          <button type="button" data-cookie-choice="denied">Отклонить</button>
-          <button type="button" class="cookie-consent__accept" data-cookie-choice="granted">Принять</button>
+          \${consentGranted
+            ? '<button type="button" data-cookie-consent-revoke>Отключить аналитику</button>'
+            : '<button type="button" class="cookie-consent__accept" data-cookie-consent-grant>Разрешить аналитику</button>'}
         </div>
       \`;
 
-      banner.querySelector('[data-cookie-choice="granted"]')?.addEventListener('click', () => {
-        setCatoblepasConsent('granted');
+      banner.querySelector('[data-cookie-consent-grant]')?.addEventListener('click', () => {
+        grantCatoblepasAnalyticsConsent();
         closeCatoblepasCookieBanner();
         loadCatoblepasMetrika();
       });
 
-      banner.querySelector('[data-cookie-choice="denied"]')?.addEventListener('click', () => {
-        const metrikaWasLoaded = window.__catoblepasMetrikaLoaded === true;
-        setCatoblepasConsent('denied');
-        clearCatoblepasMetrikaCookies();
+      banner.querySelector('[data-cookie-consent-revoke]')?.addEventListener('click', () => {
+        revokeCatoblepasAnalyticsConsent();
+        location.reload();
+      });
+
+      banner.querySelector('[data-cookie-consent-close]')?.addEventListener('click', () => {
         closeCatoblepasCookieBanner();
-        if (metrikaWasLoaded) location.reload();
       });
 
       document.body.appendChild(banner);
-      banner.querySelector('button')?.focus();
+      banner.querySelector('[data-cookie-consent-grant], [data-cookie-consent-revoke]')?.focus();
     }
 
-    if (getCatoblepasConsent() === 'granted') {
+    if (hasCatoblepasAnalyticsConsent()) {
       loadCatoblepasMetrika();
-    } else if (getCatoblepasConsent() !== 'denied') {
+    } else {
       showCatoblepasCookieBanner();
     }
 

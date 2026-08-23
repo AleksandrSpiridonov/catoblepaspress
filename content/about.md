@@ -14,5 +14,6 @@ description: Экспериментальное инди-издательств�
 ![[editorialpolicy#Редакционная политика издательства и журнала «Катоблепас»|Редакционная политика]]
 ## Контакты
 - [telegram](https://t.me/catoblepaspress)
-- [e-mail](mailto:spiridonovpress@mail.ru)
+- [mail@catoblepaspress.ru](mailto:mail@catoblepaspress.ru) — основная почта
+- [catoblepaspress@mail.ru](mailto:catoblepaspress@mail.ru) — прежняя почта, работает на время перехода
 - Санкт-Петербург

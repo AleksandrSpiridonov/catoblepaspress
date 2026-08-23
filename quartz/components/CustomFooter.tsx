@@ -28,7 +28,7 @@ const CustomFooter: QuartzComponentConstructor<Options> = (opts) => {
           type="button"
           class="cookie-settings"
         >
-          Настройки cookie
+          О cookie
         </button>
       </p>
     </footer>
