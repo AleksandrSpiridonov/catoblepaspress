@@ -23,6 +23,67 @@ body {
   -ms-hyphens: auto;
 }
 
+html.age-gate-open,
+html.age-gate-open body {
+  overflow: hidden;
+}
+
+.age-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgb(0 0 0 / 72%);
+  backdrop-filter: blur(0.25rem);
+
+  .age-gate__dialog {
+    width: min(100%, 30rem);
+    padding: 2rem;
+    border: 1px solid var(--lightgray);
+    border-radius: 0.5rem;
+    color: var(--darkgray);
+    background: var(--light);
+    box-shadow: 0 1rem 4rem rgb(0 0 0 / 35%);
+    text-align: center;
+  }
+
+  .age-gate__mark {
+    margin: 0 0 0.75rem;
+    color: var(--secondary);
+    font-family: var(--headerFont);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0.75rem 0 1.5rem;
+  }
+
+  button {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--secondary);
+    border-radius: 0.25rem;
+    color: var(--light);
+    background: var(--secondary);
+    font: inherit;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      filter: brightness(0.9);
+    }
+  }
+}
+
 // Quartz Fonts emits heading rules without a generic fallback. Keep the
 // original sans-serif typography when Google Fonts is slow or unavailable.
 html body h1,

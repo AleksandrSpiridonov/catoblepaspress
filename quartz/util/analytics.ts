@@ -5,6 +5,7 @@ export function yandexMetrikaScript(counterId: number): string {
 
   return `
     const catoblepasConsentKey = 'catoblepas_cookie_consent';
+    const catoblepasAgeConfirmationKey = 'catoblepas_age_confirmed';
 
     function loadCatoblepasMetrika() {
       if (window.__catoblepasMetrikaLoaded) return;
@@ -64,6 +65,65 @@ export function yandexMetrikaScript(counterId: number): string {
       document.getElementById('cookie-consent')?.remove();
     }
 
+    function hasCatoblepasAgeConfirmation() {
+      try {
+        return localStorage.getItem(catoblepasAgeConfirmationKey) === 'confirmed';
+      } catch {
+        return false;
+      }
+    }
+
+    function confirmCatoblepasAge() {
+      try {
+        localStorage.setItem(catoblepasAgeConfirmationKey, 'confirmed');
+      } catch {
+        // If storage is unavailable, confirmation applies only to this page view.
+      }
+    }
+
+    function closeCatoblepasAgeGate() {
+      document.getElementById('age-gate')?.remove();
+      document.documentElement.classList.remove('age-gate-open');
+    }
+
+    function continueAfterCatoblepasAgeConfirmation() {
+      if (hasCatoblepasAnalyticsConsent()) {
+        loadCatoblepasMetrika();
+      } else {
+        showCatoblepasCookieBanner();
+      }
+    }
+
+    function showCatoblepasAgeGate() {
+      if (document.getElementById('age-gate')) return;
+
+      const gate = document.createElement('section');
+      gate.id = 'age-gate';
+      gate.className = 'age-gate';
+      gate.setAttribute('role', 'dialog');
+      gate.setAttribute('aria-modal', 'true');
+      gate.setAttribute('aria-labelledby', 'age-gate-title');
+      gate.setAttribute('aria-describedby', 'age-gate-description');
+      gate.innerHTML = \`
+        <div class="age-gate__dialog">
+          <p class="age-gate__mark" aria-hidden="true">18+</p>
+          <h2 id="age-gate-title">Подтвердите свой возраст</h2>
+          <p id="age-gate-description">Материалы сайта предназначены для посетителей старше 18 лет.</p>
+          <button type="button" data-age-confirm>Мне уже исполнилось 18 лет</button>
+        </div>
+      \`;
+
+      gate.querySelector('[data-age-confirm]')?.addEventListener('click', () => {
+        confirmCatoblepasAge();
+        closeCatoblepasAgeGate();
+        continueAfterCatoblepasAgeConfirmation();
+      });
+
+      document.documentElement.classList.add('age-gate-open');
+      document.body.appendChild(gate);
+      gate.querySelector('[data-age-confirm]')?.focus();
+    }
+
     function showCatoblepasCookieBanner() {
       closeCatoblepasCookieBanner();
       const consentGranted = hasCatoblepasAnalyticsConsent();
@@ -109,10 +169,10 @@ export function yandexMetrikaScript(counterId: number): string {
       banner.querySelector('[data-cookie-consent-grant], [data-cookie-consent-revoke]')?.focus();
     }
 
-    if (hasCatoblepasAnalyticsConsent()) {
-      loadCatoblepasMetrika();
+    if (hasCatoblepasAgeConfirmation()) {
+      continueAfterCatoblepasAgeConfirmation();
     } else {
-      showCatoblepasCookieBanner();
+      showCatoblepasAgeGate();
     }
 
     document.addEventListener('catoblepas:cookie-settings', showCatoblepasCookieBanner);
