@@ -17,7 +17,7 @@ _[[medvedevartist|Евгений Медведев]] Город, 2018_
 > - <strong><a href="./published/biastape#заказать" class="internal" data-metrika-goal="preorder_click">Предзаказать «косую бейку» Маруси Навки</a></strong> — печатная и электронная версии
 > - <strong><a href="./interviews/marusya-navka-kosaya-beyka" class="internal">Посмотреть и прочитать интервью с Марусей Навкой</a></strong> — о «косой бейке», стихах, музыке и театре
 > - <strong><a href="./journal/" class="internal" data-metrika-goal="journal_click">Читать стохастический журнал</a></strong> — поэзия, проза, эссе, визуальное искусство, кино и музыка
-> - <strong><a href="./projects/filmclub" class="internal" data-metrika-goal="participation_click">Обсудить <em>Дух улья</em> Виктора Эрисе в киноклубе 24 августа 2026 года</a></strong> — встреча в 19:00 МСК
+> - <strong><a href="./projects/filmclub" class="internal" data-metrika-goal="participation_click">Обсудить <em>Sans Soleil</em> Криса Маркера в киноклубе 28 сентября 2026 года</a></strong> — встреча в 19:00 МСК
 > - <strong><a href="./projects/bookclub" class="internal" data-metrika-goal="participation_click">Обсудить «Странника» Александра Вельтмана в книжном клубе 29 августа 2026 года</a></strong> — присоединиться к чтению и встрече
 
 ## Что мы делаем
@@ -61,7 +61,7 @@ _[[medvedevartist|Евгений Медведев]] Город, 2018_
 ## Следить и связаться
 
 - [Telegram издательства](https://t.me/catoblepaspress)
-- **Письма «Катоблепаса»** — новые книги, выпуски и встречи один–два раза в месяц. <a href="mailto:mail@catoblepaspress.ru?subject=Письма%20Катоблепаса&amp;body=Прошу%20подписать%20меня%20на%20письма%20Катоблепаса." data-metrika-goal="newsletter_click">Подписаться письмом</a>
+- **Письма Катоблепа** — новые книги, выпуски и встречи один–два раза в месяц. <a href="mailto:mail@catoblepaspress.ru?subject=Письма%20Катоблепа&amp;body=Прошу%20подписать%20меня%20на%20«Письма%20Катоблепа»." data-metrika-goal="newsletter_click">Подписаться письмом</a>
 - [mail@catoblepaspress.ru](mailto:mail@catoblepaspress.ru)
 - [[contacts|Все способы связи]]
 
