@@ -14,7 +14,7 @@ _[[medvedevartist|Евгений Медведев]] Город, 2018_
 
 > [!abstract] Сейчас в «Катоблепасе»
 >
-> - <strong><a href="./published/biastape#заказать" class="internal" data-metrika-goal="preorder_click">Предзаказать «косую бейку» Маруси Навки</a></strong> — печатная и электронная версии
+> - <strong><a href="./published/biastape#заказать" class="internal" data-metrika-goal="order_click">Заказать «косую бейку» Маруси Навки</a></strong> — предзаказ завершён, книга отправляется в печать
 > - <strong><a href="./interviews/marusya-navka-kosaya-beyka" class="internal">Посмотреть и прочитать интервью с Марусей Навкой</a></strong> — о «косой бейке», стихах, музыке и театре
 > - <strong><a href="./journal/" class="internal" data-metrika-goal="journal_click">Читать стохастический журнал</a></strong> — поэзия, проза, эссе, визуальное искусство, кино и музыка
 > - <strong><a href="./projects/filmclub" class="internal" data-metrika-goal="participation_click">Обсудить <em>Sans Soleil</em> Криса Маркера в киноклубе 28 сентября 2026 года</a></strong> — онлайн-встреча в 19:00 МСК
@@ -32,7 +32,7 @@ _[[medvedevartist|Евгений Медведев]] Город, 2018_
 ## Издания
 
 - _Claude Le Petit_ [[lebordeldesmuses|Le Bordel des Muses]], 2026 — конкурс перевода
-- _[[bellyinbelly|Маруся Навка]]_ [[biastape|косая бейка]], 2026 — открыт предзаказ
+- _[[bellyinbelly|Маруся Навка]]_ [[biastape|косая бейка]], 2026 — заказать печатную или электронную версию
 - [[published/index|Все издания]]
 
 ## Cтохастический журнал «Катоблепас»
