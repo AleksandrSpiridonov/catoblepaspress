@@ -14,6 +14,8 @@ description: Экспериментальное инди-издательств�
 ![[editorialpolicy#Редакционная политика издательства и журнала «Катоблепас»|Редакционная политика]]
 ## Контакты
 - [telegram](https://t.me/catoblepaspress)
-- [mail@catoblepaspress.ru](mailto:mail@catoblepaspress.ru) — основная почта
+- [youtube](https://www.youtube.com/@catoblepaspress)
+- [ungh@catoblepaspress.ru](mailto:ungh@catoblepaspress.ru) — основная почта
+- [vox@catoblepaspress.ru](mailto:vox@catoblepaspress.ru?subject=Подписка%20на%20рассылку%20издательства%20«Катоблепас»&body=Прошу%20подписать%20меня%20на%20официальную%20рассылку%20издательства%20«Катоблепас».) — официальная рассылка издательства, напишите письмо, чтобы подписаться на рассылку
 - [catoblepaspress@mail.ru](mailto:catoblepaspress@mail.ru) — прежняя почта, работает на время перехода
 - Санкт-Петербург

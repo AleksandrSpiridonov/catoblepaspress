@@ -36,4 +36,4 @@ aliases:
 **[[mistakes#Читать|Читать →]]**
 
 ## Заказать издания
-Вопросы о заказах и изданиях: [mail@catoblepaspress.ru](mailto:mail@catoblepaspress.ru).
+Вопросы о заказах и изданиях: [ungh@catoblepaspress.ru](mailto:ungh@catoblepaspress.ru).

@@ -25,4 +25,5 @@ tags:
 ### Награды
 - [[voxcatoblepae|Vox Catoblepae]] 2025
 ## Контакты
+- [meh@catoblepaspress.ru](mailto:meh@catoblepaspress.ru)
 - [ylisse.tilda.ws](https://ylisse.tilda.ws/)

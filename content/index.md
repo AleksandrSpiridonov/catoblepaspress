@@ -61,8 +61,9 @@ _[[medvedevartist|Евгений Медведев]] Город, 2018_
 ## Следить и связаться
 
 - [Telegram издательства](https://t.me/catoblepaspress)
-- **Письма Катоблепа** — новые книги, выпуски и встречи один–два раза в месяц. <a href="mailto:mail@catoblepaspress.ru?subject=Письма%20Катоблепа&amp;body=Прошу%20подписать%20меня%20на%20«Письма%20Катоблепа»." data-metrika-goal="newsletter_click">Подписаться письмом</a>
-- [mail@catoblepaspress.ru](mailto:mail@catoblepaspress.ru)
+- [YouTube издательства](https://www.youtube.com/@catoblepaspress)
+- **Официальная рассылка издательства** — новые книги, выпуски и встречи один–два раза в месяц. <a href="mailto:vox@catoblepaspress.ru?subject=Подписка%20на%20рассылку%20издательства%20«Катоблепас»&amp;body=Прошу%20подписать%20меня%20на%20официальную%20рассылку%20издательства%20«Катоблепас»." data-metrika-goal="newsletter_click">Подписаться письмом</a>
+- [ungh@catoblepaspress.ru](mailto:ungh@catoblepaspress.ru)  
 - [[contacts|Все способы связи]]
 
 > [!Quote] Si enim fallor, sum

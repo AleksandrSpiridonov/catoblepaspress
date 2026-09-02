@@ -5,8 +5,10 @@ description: Связаться с издательством «Катоблеп
 ## Связаться с издательством
 
 - **Telegram:** [@catoblepaspress](https://t.me/catoblepaspress) — новости, анонсы и новые выпуски
-- **Основная почта:** [mail@catoblepaspress.ru](mailto:mail@catoblepaspress.ru) — заказы, сотрудничество и общие вопросы
-- **Прежняя почта:** [catoblepaspress@mail.ru](mailto:catoblepaspress@mail.ru) — продолжает работать на время перехода
+- **YouTube:** [@catoblepaspress](https://www.youtube.com/@catoblepaspress) — видео издательства
+- **Основная почта:** [ungh@catoblepaspress.ru](mailto:ungh@catoblepaspress.ru) — заказы, сотрудничество и общие вопросы
+- **Рассылка издательства:** [vox@catoblepaspress.ru](mailto:vox@catoblepaspress.ru?subject=Подписка%20на%20рассылку%20издательства%20«Катоблепас»&body=Прошу%20подписать%20меня%20на%20официальную%20рассылку%20издательства%20«Катоблепас».) — подписаться на официальные письма «Катоблепаса»
+- **Прежняя почта:** [catoblepaspress@mail.ru](mailto:catoblepaspress@mail.ru) — продолжает работать
 - **Город:** Санкт-Петербург
 
 Чтобы мы быстрее ответили, укажите в теме письма книгу, проект или характер предложения.
