@@ -3,6 +3,12 @@ title: Новые идеи в искусстве
 description: «Новые идеи в искусстве» Евгения Медведева — книга об искусстве, готовящаяся к изданию в «Катоблепасе»
 aliases:
   - Новые идеи в искусстве
+author: Евгений Медведев
+year: 2026
+status: Готовится к изданию
+formats:
+  - Печатная книга
+cover: "[[novye-idei-v-iskusstve-book-mockup-square.webp]]"
 ---
 
 ![[novye-idei-v-iskusstve-book-mockup-square.webp]]

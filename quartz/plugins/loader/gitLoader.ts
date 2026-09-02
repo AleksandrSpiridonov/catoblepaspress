@@ -473,7 +473,9 @@ export async function installPlugin(
       console.log(styleText("cyan", `→`), `Linking ${spec.name} from ${spec.repo}...`)
     }
 
-    fs.symlinkSync(spec.repo, pluginDir, "dir")
+    // Directory symlinks require Developer Mode or elevation on Windows.
+    // Junctions provide the same local-plugin workflow without either requirement.
+    fs.symlinkSync(spec.repo, pluginDir, process.platform === "win32" ? "junction" : "dir")
 
     if (options.verbose) {
       console.log(styleText("green", `✓`), `Linked ${spec.name}`)

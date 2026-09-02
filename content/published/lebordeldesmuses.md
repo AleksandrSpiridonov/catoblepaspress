@@ -4,6 +4,12 @@ description: Claude Le Petit
 aliases:
   - Бордель муз
   - Le Bordel des Muses
+author: Claude Le Petit
+year: 2026
+status: Вышло
+formats:
+  - EPUB
+cover: "[[lebordeldesmuses.webp]]"
 ---
 ![[lebordeldesmuses.webp]]
 ## Выходные данные

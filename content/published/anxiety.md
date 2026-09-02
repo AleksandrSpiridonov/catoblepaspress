@@ -3,6 +3,13 @@ title: Тревога дней
 description: Второй сборник стихов Евгения Лебедева
 aliases:
   - Тревога дней
+author: Евгений Лебедев
+year: 2025
+status: Вышло
+formats:
+  - Онлайн
+  - PDF
+cover: "[[anxietyCover.webp]]"
 ---
 ![[anxietyCover.webp]]
 ## Выходные данные
