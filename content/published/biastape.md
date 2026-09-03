@@ -14,8 +14,6 @@ cover: "[[biastape.webp]]"
 
 ![[biastape.webp]]
 
-<a class="external-cta" href="https://www.litres.ru/book/marusya-navka/kosaya-beyka-74111291/?ysclid=mtldg74zmu871061559" target="_blank" rel="noopener noreferrer">Читать на Литрес</a>
-
 ## Заказать
 Выберите версию и оформите заказ. Если форма не открывается, напишите на [catoblepaspress@mail.ru](mailto:catoblepaspress@mail.ru) с темой «косая бейка».
 
@@ -39,6 +37,8 @@ cover: "[[biastape.webp]]"
 Перед отправкой формы ознакомьтесь с [[documents/privacy|Политикой обработки персональных данных]] и [[documents/personal-data-consent|Согласием на обработку персональных данных]].
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdEbOzuysovGTcVuT2_FwNurZ3S6g1zyGsdZLbjpg3fY5AlrA/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+
+<a class="external-cta" href="https://www.litres.ru/book/marusya-navka/kosaya-beyka-74111291/?ysclid=mtldg74zmu871061559" target="_blank" rel="noopener noreferrer">Читать на Литрес</a>
 
 ## Выходные данные
 *Маруся Навка* Косая бейка. СПб: Катоблепас, 2026  
