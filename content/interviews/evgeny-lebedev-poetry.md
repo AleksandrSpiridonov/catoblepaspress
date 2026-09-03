@@ -11,9 +11,9 @@ tags:
 > [!warning] 18+
 
 > [!video] Смотреть интервью
-> Видео опубликовано 30 января 2025 года в [Telegram-канале издательства «Катоблепас»](https://t.me/catoblepaspress/16). 
+> Интервью впервые опубликовано в [[№ 21 (7)|21-м выпуске]] журнала «Катоблепас» в 2026 году. Видео можно посмотреть [на YouTube](https://youtu.be/QFdVHm2m6Yw) или в [Telegram-канале издательства «Катоблепас»](https://t.me/catoblepaspress/16).
 
-<iframe src="https://t.me/catoblepaspress/16?embed=1" width="100%" height="720" frameborder="0" scrolling="no" allowfullscreen title="Интервью с Евгением Лебедевым в Telegram">Загрузка видео из Telegram…</iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/QFdVHm2m6Yw" width="100%" style="aspect-ratio: 16 / 9" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Интервью с Евгением Лебедевым на YouTube">Загрузка видео с YouTube…</iframe>
 
 Поэт [[evglebedev|Евгений Лебедев]] рассказывает о сборнике «[[mistakes|Ошибки молодости]]», неработающих социальных лифтах, бесполезности поэзии, нелюбви к критикам и читателям, а также о книге как чёрной дыре, способной поглотить всю литературную индустрию.
 

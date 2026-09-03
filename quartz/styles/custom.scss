@@ -23,6 +23,22 @@ body {
   -ms-hyphens: auto;
 }
 
+.external-cta {
+  display: inline-block;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--secondary);
+  border-radius: 0.25rem;
+  color: var(--light) !important;
+  background: var(--secondary);
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    filter: brightness(0.9);
+  }
+}
+
 html.age-gate-open,
 html.age-gate-open body {
   overflow: hidden;

@@ -81,6 +81,7 @@ export default (() => {
 
         <link rel="icon" href={iconPath} />
         <meta name="description" content={description} />
+        <meta name="copyright" content="© 2025–2026 Издательство «Катоблепас»" />
         <meta name="generator" content="Quartz" />
 
         {css.map((resource) => CSSResourceToStyleElement(resource, true))}
