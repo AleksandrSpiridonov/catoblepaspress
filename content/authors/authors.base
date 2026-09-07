@@ -1,0 +1,35 @@
+filters:
+  and:
+    - file.inFolder("authors")
+    - file.ext == "md"
+    - file.name != "index"
+formulas:
+  author: link(file.path, note.title)
+properties:
+  formula.author:
+    displayName: Имя
+  tags:
+    displayName: Теги
+  books:
+    displayName: Книги
+views:
+  - type: cards
+    name: Авторы
+    order:
+      - tags
+    sort:
+      - property: title
+        direction: ASC
+    image: note.avatar
+    imageAspectRatio: 1
+    imageFit: cover
+    cardSize: 180
+  - type: table
+    name: Таблица
+    order:
+      - formula.author
+      - tags
+      - books
+    sort:
+      - property: title
+        direction: ASC

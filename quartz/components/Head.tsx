@@ -25,7 +25,8 @@ export default (() => {
     const url = new URL(`https://${cfg.baseUrl ?? "example.com"}`)
     const path = url.pathname as FullSlug
     const baseDir = fileData.slug === "404" ? path : pathToRoot(fileData.slug!)
-    const iconPath = joinSegments(baseDir, "static/icon.png")
+    const iconPath = joinSegments(baseDir, "static/favicon.ico")
+    const appleTouchIconPath = joinSegments(baseDir, "static/apple-touch-icon.png")
 
     // Url of current page
     const socialUrl = canonicalUrlForSlug(cfg.baseUrl ?? "example.com", fileData.slug ?? "index")
@@ -79,7 +80,8 @@ export default (() => {
           </>
         )}
 
-        <link rel="icon" href={iconPath} />
+        <link rel="icon" href={iconPath} type="image/x-icon" sizes="16x16 32x32 48x48" />
+        <link rel="apple-touch-icon" href={appleTouchIconPath} sizes="180x180" />
         <meta name="description" content={description} />
         <meta name="copyright" content="© 2025–2026 Издательство «Катоблепас»" />
         <meta name="generator" content="Quartz" />

@@ -131,7 +131,7 @@ plugins:
   - source: "@quartz-community/explorer"
     enabled: true
     options:
-      filterFn: 'node => node.slugSegment !== "tags" && node.slugSegment !== "editions.base"'
+      filterFn: 'node => node.slugSegment !== "tags" && node.slugSegment !== "editions.base" && node.slugSegment !== "index.base"'
     layout:
       position: left
       priority: 50
