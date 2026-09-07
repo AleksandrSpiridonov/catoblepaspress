@@ -3,6 +3,7 @@ import * as ExternalPlugin from "./.quartz/plugins"
 import CustomFooter from "./quartz/components/CustomFooter"
 import LegacyOgImage from "./quartz/components/LegacyOgImage"
 import { componentRegistry } from "./quartz/components/registry"
+import { MediaAltText } from "./quartz/plugins/transformers/mediaAltText"
 import type { ExplorerOptions } from "@quartz-community/explorer"
 
 const priorityOrder: Record<string, number> = {
@@ -64,5 +65,6 @@ const layoutOverrides = {
 }
 
 const config = await loadQuartzConfig(undefined, layoutOverrides)
+config.plugins.transformers.push(MediaAltText())
 export default config
 export const layout = await loadQuartzLayout(layoutOverrides)
