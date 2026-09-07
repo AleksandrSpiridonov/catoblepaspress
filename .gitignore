@@ -13,3 +13,4 @@ replit.nix
 .quartz/
 quartz/cli/tui/dist/
 .turbo/
+quartz/components/prototypes/
