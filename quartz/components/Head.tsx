@@ -25,7 +25,7 @@ export default (() => {
     const url = new URL(`https://${cfg.baseUrl ?? "example.com"}`)
     const path = url.pathname as FullSlug
     const baseDir = fileData.slug === "404" ? path : pathToRoot(fileData.slug!)
-    const iconPath = joinSegments(baseDir, "static/favicon.ico")
+    const iconPath = joinSegments(baseDir, "favicon.ico")
     const appleTouchIconPath = joinSegments(baseDir, "static/apple-touch-icon.png")
 
     // Url of current page
@@ -80,7 +80,7 @@ export default (() => {
           </>
         )}
 
-        <link rel="icon" href={iconPath} type="image/x-icon" sizes="16x16 32x32 48x48" />
+        <link rel="icon" href={iconPath} type="image/x-icon" sizes="16x16 32x32 48x48 120x120" />
         <link rel="apple-touch-icon" href={appleTouchIconPath} sizes="180x180" />
         <meta name="description" content={description} />
         <meta name="copyright" content="© 2025–2026 Издательство «Катоблепас»" />

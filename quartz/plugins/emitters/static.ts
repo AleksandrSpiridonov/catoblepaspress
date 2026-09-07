@@ -17,6 +17,12 @@ export const Static: QuartzEmitterPlugin = () => ({
       await fs.promises.mkdir(dirname(dest), { recursive: true })
       await fs.promises.copyFile(src, dest)
       yield dest
+
+      if (fp === "favicon.ico") {
+        const rootFavicon = joinSegments(argv.output, "favicon.ico") as FilePath
+        await fs.promises.copyFile(src, rootFavicon)
+        yield rootFavicon
+      }
     }
   },
   async *partialEmit() {},

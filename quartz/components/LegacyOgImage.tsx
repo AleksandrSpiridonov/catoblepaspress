@@ -1,135 +1,198 @@
 import type { SocialImageOptions } from "@quartz-community/og-image"
 import type { Theme } from "../util/theme"
+import { ogWatercolorRail } from "./ogWatercolorRail"
 
 const fontName = (font: string | { name: string }) => (typeof font === "string" ? font : font.name)
 
-const pageDate = (dates: Record<string, Date> | undefined, locale: string) => {
-  const date = dates?.modified ?? dates?.published ?? dates?.created
-  return date?.toLocaleDateString(locale, {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  })
+function sectionLabel(slug: string, english: boolean) {
+  const path = slug.replace(/^\/+|\/+$/g, "").replace(/\/index$/, "")
+  const section = path.split("/")[0]
+  if (path.split("/").includes("translations")) return english ? "TRANSLATIONS" : "ПЕРЕВОДЫ"
+  const labels: Record<string, [string, string, string, string]> = {
+    interviews: ["ИНТЕРВЬЮ", "ИНТЕРВЬЮ", "INTERVIEW", "INTERVIEWS"],
+    authors: ["АВТОР", "АВТОРЫ", "AUTHOR", "AUTHORS"],
+    published: ["ИЗДАНИЕ", "ИЗДАНИЯ", "BOOK", "BOOKS"],
+    publications: ["ПУБЛИКАЦИЯ", "ПУБЛИКАЦИИ", "PUBLICATION", "PUBLICATIONS"],
+    projects: ["ПРОЕКТ", "ПРОЕКТЫ", "PROJECT", "PROJECTS"],
+    documents: ["ДОКУМЕНТ", "ДОКУМЕНТЫ", "DOCUMENT", "DOCUMENTS"],
+    journal: ["ЖУРНАЛ", "ЖУРНАЛ", "JOURNAL", "JOURNAL"],
+    translations: ["ПЕРЕВОДЫ", "ПЕРЕВОДЫ", "TRANSLATIONS", "TRANSLATIONS"],
+  }
+  if (!path || path === "index" || path === "about")
+    return english ? "PUBLISHING HOUSE" : "ИЗДАТЕЛЬСТВО"
+  return (
+    labels[section]?.[(english ? 2 : 0) + (path === section ? 1 : 0)] ??
+    (english ? "CATOBLEPAS" : "КАТОБЛЕПАС")
+  )
 }
 
 const LegacyOgImage: SocialImageOptions["imageStructure"] = ({
   cfg,
-  userOpts,
   title,
   description,
   fileData,
-  iconBase64,
 }) => {
   const theme = cfg.theme as Theme
-  const colors = theme.colors[userOpts.colorScheme]
-  const compactTitle = title.length > 32
-  const date = pageDate(fileData.dates, cfg.locale ?? "ru-RU")
-  const tags = fileData.frontmatter?.tags ?? []
-  const bodyFont = fontName(theme.typography.body)
-  const headerFont = fontName(theme.typography.header)
-
+  const locale = cfg.locale ?? "ru-RU"
+  const english = locale.startsWith("en")
+  // Preserve the existing date priority.
+  const date = (
+    fileData.dates?.modified ??
+    fileData.dates?.published ??
+    fileData.dates?.created
+  )?.toLocaleDateString(locale, {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  })
+  const tag = fileData.frontmatter?.tags?.[0]
+  const titleSize =
+    title.length > 180
+      ? 30
+      : title.length > 120
+        ? 36
+        : title.length > 70
+          ? 44
+          : title.length > 35
+            ? 50
+            : 62
   return (
     <div
       style={{
         display: "flex",
-        flexDirection: "column",
         width: "100%",
         height: "100%",
-        padding: "2.5rem",
-        backgroundColor: colors.light,
-        fontFamily: bodyFont,
+        backgroundColor: "#16171b",
+        color: "#f8f7f2",
+        fontFamily: fontName(theme.typography.body),
       }}
     >
       <div
         style={{
           display: "flex",
-          alignItems: "center",
-          gap: "1rem",
-          marginBottom: "0.5rem",
-        }}
-      >
-        {iconBase64 && <img src={iconBase64} width={56} height={56} />}
-        <div style={{ display: "flex", fontSize: 32, color: colors.gray }}>{cfg.baseUrl}</div>
-      </div>
-
-      <div style={{ display: "flex", marginTop: "1rem", marginBottom: "1.5rem" }}>
-        <h1
-          style={{
-            display: "-webkit-box",
-            margin: 0,
-            overflow: "hidden",
-            color: colors.dark,
-            fontFamily: headerFont,
-            fontSize: compactTitle ? 64 : 72,
-            fontWeight: 700,
-            lineHeight: 1.2,
-            textOverflow: "ellipsis",
-            WebkitBoxOrient: "vertical",
-            WebkitLineClamp: 2,
-          }}
-        >
-          {title}
-        </h1>
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          overflow: "hidden",
-          color: colors.darkgray,
-          fontSize: 36,
-          lineHeight: 1.4,
-        }}
-      >
-        <p
-          style={{
-            display: "-webkit-box",
-            margin: 0,
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            WebkitBoxOrient: "vertical",
-            WebkitLineClamp: 5,
-          }}
-        >
-          {description}
-        </p>
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
+          flexDirection: "column",
           justifyContent: "space-between",
-          marginTop: "2rem",
-          paddingTop: "2rem",
-          borderTop: `1px solid ${colors.lightgray}`,
+          width: "26%",
+          flexShrink: 0,
+          padding: "46px 36px",
+          backgroundColor: "#eef0f8",
+          position: "relative",
+          color: "#294878",
         }}
       >
-        <div style={{ display: "flex", color: colors.gray, fontSize: 28 }}>{date}</div>
+        <img
+          src={ogWatercolorRail}
+          width={312}
+          height={630}
+          style={{ position: "absolute", top: 0, left: 0 }}
+        />
+        <div style={{ display: "flex", flex: 1 }} />
+        <div style={{ display: "flex", flexDirection: "column", gap: 18, position: "relative" }}>
+          <div
+            style={{
+              display: "flex",
+              fontFamily: fontName(theme.typography.header),
+              fontSize: 24,
+              fontWeight: 700,
+              whiteSpace: "nowrap",
+            }}
+          >
+            {english ? "CATOBLEPAS" : "КАТОБЛЕПАС"}
+          </div>
+          <div style={{ display: "flex", color: "#526585", fontSize: 17 }}>{cfg.baseUrl}</div>
+        </div>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "74%",
+          padding: "46px 46px 24px",
+        }}
+      >
         <div
           style={{
             display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "flex-end",
-            gap: "0.5rem",
-            maxWidth: "60%",
+            fontSize: 21,
+            fontWeight: 700,
+            letterSpacing: 2,
+            color: "#8da9ff",
           }}
         >
-          {tags.slice(0, 3).map((tag) => (
+          {sectionLabel(String(fileData.slug ?? ""), english)}
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flex: 1,
+            minHeight: 0,
+            overflow: "hidden",
+            paddingTop: 32,
+            paddingBottom: 24,
+          }}
+        >
+          <h1
+            style={{
+              display: "-webkit-box",
+              margin: 0,
+              fontFamily: fontName(theme.typography.header),
+              fontSize: titleSize,
+              lineHeight: 1.12,
+              fontWeight: 700,
+              WebkitLineClamp: 5,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          >
+            {title}
+          </h1>
+          <p
+            style={{
+              display: "-webkit-box",
+              margin: "24px 0 0",
+              fontSize: 27,
+              lineHeight: 1.35,
+              color: "#c9c9cf",
+              WebkitLineClamp: title.length > 120 ? 2 : 3,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          >
+            {description}
+          </p>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexShrink: 0,
+            minHeight: 55,
+            paddingTop: 16,
+            borderTop: "1px solid #34353a",
+          }}
+        >
+          <div style={{ display: "flex", fontSize: 21, color: "#85868d" }}>{date ?? ""}</div>
+          {tag && (
             <div
               style={{
                 display: "flex",
-                padding: "0.5rem 1rem",
-                color: colors.secondary,
-                backgroundColor: colors.highlight,
-                borderRadius: "10px",
-                fontSize: 24,
+                maxWidth: "55%",
+                padding: "7px 14px",
+                borderRadius: 22,
+                backgroundColor: "#272d3d",
+                color: "#b8c7fb",
+                fontSize: 20,
               }}
             >
-              #{tag}
+              <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                #{tag}
+              </span>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </div>

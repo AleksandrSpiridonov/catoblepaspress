@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PROTOTYPE — OG-карточки «Катоблепаса»</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #202124;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        padding: 28px 28px 110px;
+        place-items: center;
+      }
+
+      .stage {
+        width: min(1200px, 96vw);
+      }
+
+      .prototype-note {
+        margin: 0 0 12px;
+        color: #b8b8bd;
+        font-size: 14px;
+      }
+
+      .og {
+        position: relative;
+        display: none;
+        width: 100%;
+        aspect-ratio: 1200 / 630;
+        overflow: hidden;
+        border-radius: 3px;
+        box-shadow: 0 20px 70px rgb(0 0 0 / 35%);
+      }
+
+      .og.active {
+        display: flex;
+      }
+
+      .brand-name {
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .domain {
+        font-size: clamp(12px, 1.8vw, 22px);
+      }
+
+      .title {
+        margin: 0;
+        font-weight: 730;
+        letter-spacing: -0.025em;
+      }
+
+      .description {
+        margin: 0;
+        line-height: 1.32;
+      }
+
+      .title[data-length="short"] {
+        font-size: clamp(38px, 6.1vw, 76px);
+      }
+
+      .title[data-length="medium"] {
+        font-size: clamp(34px, 5.2vw, 64px);
+      }
+
+      .title[data-length="long"] {
+        font-size: clamp(28px, 4.25vw, 52px);
+        line-height: 1.08;
+      }
+
+      .variant-a {
+        flex-direction: column;
+        padding: 48px 54px 42px;
+        color: #242429;
+        background: #f7f3ed;
+      }
+
+      .variant-a .header,
+      .variant-c .header {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: #315fd5;
+        font-size: clamp(15px, 2vw, 25px);
+      }
+
+      .variant-a .copy {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        width: 73%;
+        padding: 24px 0 28px;
+      }
+
+      .variant-a .title {
+        max-width: 900px;
+      }
+
+      .variant-a .description {
+        display: -webkit-box;
+        max-width: 850px;
+        margin-top: 24px;
+        overflow: hidden;
+        color: #56535a;
+        font-size: clamp(18px, 2.65vw, 33px);
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+
+      .variant-a .logo {
+        position: absolute;
+        right: -20px;
+        bottom: -42px;
+        width: 35%;
+        opacity: 0.95;
+        mix-blend-mode: multiply;
+      }
+
+      .variant-a .footer,
+      .variant-c .footer {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 16px;
+        border-top: 2px solid #d9d4cc;
+        color: #77727a;
+      }
+
+      .variant-b {
+        color: #f8f7f2;
+        background: #16171b;
+      }
+
+      .variant-b .rail {
+        display: flex;
+        width: 27%;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 42px 36px;
+        background: #315fd5;
+      }
+
+      .variant-b .logo-tile {
+        display: grid;
+        width: min(112px, 62%);
+        aspect-ratio: 1;
+        overflow: hidden;
+        border: 3px solid rgb(255 255 255 / 38%);
+        border-radius: 50%;
+        background: #f7f3ed;
+        place-items: center;
+      }
+
+      .variant-b .logo-tile img {
+        width: 100%;
+      }
+
+      .variant-b .brand-name {
+        font-size: clamp(14px, 1.65vw, 21px);
+        line-height: 1.25;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+      }
+
+      .variant-b .rail-footer {
+        display: grid;
+        gap: 12px;
+      }
+
+      .variant-b .domain {
+        color: rgb(255 255 255 / 62%);
+        font-size: clamp(11px, 1.35vw, 17px);
+      }
+
+      .variant-b .main {
+        display: flex;
+        width: 73%;
+        flex-direction: column;
+        padding: 46px 50px 40px;
+      }
+
+      .variant-b .kicker {
+        color: #8da9ff;
+        font-size: clamp(14px, 1.8vw, 22px);
+        font-weight: 650;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .variant-b .copy {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .variant-b .description {
+        display: -webkit-box;
+        margin-top: 25px;
+        overflow: hidden;
+        color: #c9c9cf;
+        font-size: clamp(17px, 2.45vw, 30px);
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+
+      .variant-b .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 15px;
+        border-top: 2px solid #34353a;
+        color: #85868d;
+        font-size: clamp(12px, 1.7vw, 20px);
+      }
+
+      .variant-b .tag {
+        padding: 7px 14px;
+        border-radius: 999px;
+        color: #b8c7fb;
+        background: #272d3d;
+      }
+
+      .variant-c {
+        flex-direction: column;
+        padding: 46px 52px 40px;
+        color: #111219;
+        background: #e9eefb;
+      }
+
+      .variant-c::before {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(125deg, transparent 0 68%, rgb(49 95 213 / 11%) 68% 100%);
+        content: "";
+      }
+
+      .variant-c .copy {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px 0;
+      }
+
+      .variant-c .title {
+        max-width: 1040px;
+      }
+
+      .variant-c .description {
+        display: -webkit-box;
+        max-width: 930px;
+        margin-top: 22px;
+        overflow: hidden;
+        color: #454b5b;
+        font-size: clamp(18px, 2.55vw, 32px);
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .variant-c .logo {
+        position: absolute;
+        right: -75px;
+        bottom: -145px;
+        width: 42%;
+        opacity: 0.13;
+        mix-blend-mode: multiply;
+        transform: rotate(-5deg);
+      }
+
+      .variant-d {
+        flex-direction: column;
+        padding: 42px 52px 38px;
+        color: #f5f4f1;
+        background: #151619;
+      }
+
+      .variant-d .header {
+        display: flex;
+        align-items: center;
+        gap: 17px;
+        color: #aaaab0;
+        font-size: clamp(15px, 1.9vw, 23px);
+      }
+
+      .variant-d .logo-circle {
+        display: grid;
+        width: 70px;
+        aspect-ratio: 1;
+        overflow: hidden;
+        border: 2px solid rgb(255 255 255 / 12%);
+        border-radius: 50%;
+        background: #f4f1ea;
+        place-items: center;
+      }
+
+      .variant-d .logo-circle img {
+        width: 100%;
+      }
+
+      .variant-d .copy {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        padding: 18px 0 24px;
+      }
+
+      .variant-d .title {
+        max-width: 1080px;
+      }
+
+      .variant-d .description {
+        display: -webkit-box;
+        max-width: 1030px;
+        margin-top: 23px;
+        overflow: hidden;
+        color: #c6c5c9;
+        font-size: clamp(18px, 2.5vw, 31px);
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+
+      .variant-d .footer {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 17px;
+        border-top: 2px solid #34353a;
+        color: #777980;
+        font-size: clamp(13px, 1.8vw, 22px);
+      }
+
+      .variant-d .tag {
+        padding: 7px 14px;
+        border-radius: 999px;
+        color: #aebef4;
+        background: #242936;
+      }
+
+      .controls {
+        position: fixed;
+        z-index: 20;
+        right: 50%;
+        bottom: 22px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px;
+        border: 1px solid #505157;
+        border-radius: 999px;
+        background: rgb(23 24 27 / 96%);
+        box-shadow: 0 8px 36px rgb(0 0 0 / 45%);
+        transform: translateX(50%);
+      }
+
+      button,
+      select {
+        height: 38px;
+        border: 0;
+        border-radius: 999px;
+        color: #f4f4f5;
+        background: #34353b;
+        font: inherit;
+      }
+
+      button {
+        min-width: 40px;
+        cursor: pointer;
+      }
+
+      select {
+        padding: 0 14px;
+      }
+
+      .variant-label {
+        min-width: 220px;
+        text-align: center;
+      }
+
+      @media (max-width: 700px) {
+        body {
+          padding-inline: 10px;
+        }
+
+        .controls {
+          width: calc(100vw - 20px);
+        }
+
+        .variant-label {
+          min-width: 0;
+          flex: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <p class="prototype-note">
+        PROTOTYPE: три варианта OG-карточки, переключение стрелками или клавишами ← →.
+      </p>
+      <section class="og variant-a" data-variant="A">
+        <header class="header"><span class="brand-name">Катоблепас</span></header>
+        <div class="copy">
+          <h1 class="title"></h1>
+          <p class="description"></p>
+        </div>
+        <img class="logo" src="../../static/icon.png" alt="" />
+        <footer class="footer"><span class="domain">catoblepaspress.ru</span><span class="kind"></span></footer>
+      </section>
+
+      <section class="og variant-b" data-variant="B">
+        <aside class="rail">
+          <div class="logo-tile"><img src="../../static/icon.png" alt="" /></div>
+          <div class="rail-footer">
+            <div class="brand-name">КАТОБЛЕПАС</div>
+            <div class="domain">catoblepaspress.ru</div>
+          </div>
+        </aside>
+        <div class="main">
+          <div class="kicker kind"></div>
+          <div class="copy">
+            <h1 class="title"></h1>
+            <p class="description"></p>
+          </div>
+          <footer class="footer"><span class="date"></span><span class="tag"></span></footer>
+        </div>
+      </section>
+
+      <section class="og variant-c" data-variant="C">
+        <header class="header"><span class="brand-name">Катоблепас</span></header>
+        <div class="copy">
+          <h1 class="title"></h1>
+          <p class="description"></p>
+        </div>
+        <img class="logo" src="../../static/icon.png" alt="" />
+        <footer class="footer"><span class="kind"></span><span class="domain">catoblepaspress.ru</span></footer>
+      </section>
+
+      <section class="og variant-d" data-variant="D">
+        <header class="header">
+          <span class="logo-circle"><img src="../../static/icon.png" alt="" /></span>
+          <span class="domain">catoblepaspress.ru</span>
+        </header>
+        <div class="copy">
+          <h1 class="title"></h1>
+          <p class="description"></p>
+        </div>
+        <footer class="footer"><span class="date"></span><span class="tag"></span></footer>
+      </section>
+    </main>
+
+    <nav class="controls" aria-label="Переключение прототипа">
+      <button type="button" data-direction="-1" aria-label="Предыдущий вариант">←</button>
+      <div class="variant-label"></div>
+      <button type="button" data-direction="1" aria-label="Следующий вариант">→</button>
+      <select aria-label="Тестовый текст">
+        <option value="interview">Длинное интервью</option>
+        <option value="about">Обычная страница</option>
+        <option value="author">Автор</option>
+        <option value="book">Книга</option>
+      </select>
+    </nav>
+
+    <script>
+      const variants = [
+        ["A", "Редакционная"],
+        ["B", "Синяя полоса"],
+        ["C", "Типографическая"],
+        ["D", "Круглый знак"],
+      ]
+      const samples = {
+        interview: {
+          title: "«Я бы предпочёл, чтобы мою поэзию не читали». Интервью с Евгением Лебедевым",
+          description:
+            "Евгений Лебедев — о сборнике «Ошибки молодости», бесполезности поэзии, критиках, читателях и литературной индустрии",
+          kind: "Интервью",
+          date: "30 янв. 2025 г.",
+          tag: "#интервью",
+        },
+        about: {
+          title: "Об издательстве",
+          description: "Экспериментальное инди-издательство «Катоблепас»",
+          kind: "Издательство",
+          date: "02 сент. 2026 г.",
+          tag: "#издательство",
+        },
+        author: {
+          title: "Александр Спиридонов-мл.",
+          description: "Издатель, основатель издательства и журнала «Катоблепас»",
+          kind: "Автор",
+          date: "07 сент. 2026 г.",
+          tag: "#авторы",
+        },
+        book: {
+          title: "Новые идеи в искусстве",
+          description: "Книга художника Евгения Медведева о рисунке с натуры и художественном восприятии",
+          kind: "Книга",
+          date: "2026",
+          tag: "#издания",
+        },
+      }
+
+      const params = new URLSearchParams(location.search)
+      let variant = params.get("variant") ?? "A"
+      let sampleKey = params.get("sample") ?? "interview"
+      const select = document.querySelector("select")
+
+      function titleLength(title) {
+        if (title.length > 70) return "long"
+        if (title.length > 35) return "medium"
+        return "short"
+      }
+
+      function render() {
+        const sample = samples[sampleKey] ?? samples.interview
+        document.querySelectorAll(".og").forEach((card) => {
+          card.classList.toggle("active", card.dataset.variant === variant)
+          const title = card.querySelector(".title")
+          title.textContent = sample.title
+          title.dataset.length = titleLength(sample.title)
+          card.querySelector(".description").textContent = sample.description
+          card.querySelectorAll(".kind").forEach((node) => (node.textContent = sample.kind))
+          card.querySelectorAll(".date").forEach((node) => (node.textContent = sample.date))
+          card.querySelectorAll(".tag").forEach((node) => (node.textContent = sample.tag))
+        })
+        const current = variants.find(([key]) => key === variant) ?? variants[0]
+        document.querySelector(".variant-label").textContent = `${current[0]} — ${current[1]}`
+        select.value = sampleKey
+        const nextParams = new URLSearchParams({ variant, sample: sampleKey })
+        history.replaceState(null, "", `?${nextParams}`)
+      }
+
+      function cycle(direction) {
+        const index = variants.findIndex(([key]) => key === variant)
+        variant = variants[(index + direction + variants.length) % variants.length][0]
+        render()
+      }
+
+      document.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("click", () => cycle(Number(button.dataset.direction)))
+      })
+      select.addEventListener("change", () => {
+        sampleKey = select.value
+        render()
+      })
+      addEventListener("keydown", (event) => {
+        if (["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName)) return
+        if (event.key === "ArrowLeft") cycle(-1)
+        if (event.key === "ArrowRight") cycle(1)
+      })
+      render()
+    </script>
+  </body>
+</html>
