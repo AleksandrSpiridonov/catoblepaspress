@@ -48,6 +48,7 @@ const footer = CustomFooter({
   copyrightText: "© 2025–2026 Издательство «Катоблепас»",
   links: {
     Telegram: "https://t.me/catoblepaspress",
+    YouTube: "https://www.youtube.com/@catoblepaspress",
     Документы: "/documents/",
   },
 })
