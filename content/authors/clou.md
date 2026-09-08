@@ -9,6 +9,7 @@ tags:
 avatar: "https://media.catoblepaspress.ru/authors/clou/portrait.webp"
 ---
 <img src="https://media.catoblepaspress.ru/authors/clou/portrait.webp" alt="Катя Клу" loading="lazy">
+
 ## Об авторе
 Катя Клу — художница и поэтесса, живёт и работает в Париже. Лауреат [[voxcatoblepae|Vox Catoblepae]] 2025.
 

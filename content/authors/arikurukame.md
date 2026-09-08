@@ -10,6 +10,7 @@ tags:
 avatar: "https://media.catoblepaspress.ru/authors/arikurukame/portrait.webp"
 ---
 <img src="https://media.catoblepaspress.ru/authors/arikurukame/portrait.webp" alt="Севак Погосян" loading="lazy">
+
 ## Об авторе
 Севак Погосян (1994, Санкт-Петербург) — поэт, художник и актер из Санкт-Петербурга. 
 

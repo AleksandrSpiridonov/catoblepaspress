@@ -9,6 +9,7 @@ tags:
 avatar: "https://media.catoblepaspress.ru/authors/olenev/portrait.webp"
 ---
 <img src="https://media.catoblepaspress.ru/authors/olenev/portrait.webp" alt="Юрий Оленев" loading="lazy">
+
 ## Об авторе
 Философ, поэт, эссеист. Выпускник философского факультета СПбГУ. Область интересов: история культуры, религия и мифология
 

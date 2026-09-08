@@ -9,6 +9,7 @@ tags:
   - режиссёр
 ---
 <img src="https://media.catoblepaspress.ru/authors/ionidi/portrait.webp" alt="Полина Иониди" loading="lazy">
+
 ## Об авторе
 Полина Иониди (1994, Москва) — профессиональный фотограф, кинорежиссёр.
 

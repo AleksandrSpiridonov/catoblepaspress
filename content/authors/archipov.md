@@ -8,6 +8,7 @@ tags:
 avatar: "https://media.catoblepaspress.ru/authors/archipov/portrait.webp"
 ---
 <img src="https://media.catoblepaspress.ru/authors/archipov/portrait.webp" alt="Алексей Архипов" loading="lazy">
+
 ## Об авторе
 Алексей Архипов — писатель-фантаст. Автор повести "[[almighty|Всемогущий]]".
 ### Биография

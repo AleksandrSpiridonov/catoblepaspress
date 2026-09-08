@@ -10,6 +10,7 @@ books:
   - "[[new-ideas-in-art|Новые идеи в искусстве]]"
 ---
 <img src="https://media.catoblepaspress.ru/authors/medvedevartist/portrait.webp" alt="Евгений Медведев" loading="lazy">
+
 ## О художнике
 Евгений Медведев (р. 1994, Орёл) — художник, выпускник Императорской академии художеств, мастер рисунка с натуры. Автор книги [[new-ideas-in-art|«Новые идеи в искусстве»]].
 ### Биография

@@ -12,6 +12,7 @@ books:
   - "[[anxiety|Тревога дней]]"
 ---
 <img src="https://media.catoblepaspress.ru/authors/evglebedev/portrait.webp" alt="Евгений Лебедев" loading="lazy">
+
 ## Об авторе
 Евгений Лебедев (1993, Санкт-Петербург) — спекулятивный поэт и фланёр. Выпускник философского факультета СПбГУ.
 

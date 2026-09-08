@@ -12,6 +12,7 @@ books:
   - "[[biastape|косая бейка]]"
 ---
 <img src="https://media.catoblepaspress.ru/authors/bellyinbelly/portrait.webp" alt="Маруся Навка" loading="lazy">
+
 ## Об авторе
 Маруся Навка (2001, Санкт-Петербург) — поэт, панк, музыкант. Автор поэмы «Собачья родинка». Лауреат [[voxcatoblepae|Vox Catoblepae]] 2025.
 
