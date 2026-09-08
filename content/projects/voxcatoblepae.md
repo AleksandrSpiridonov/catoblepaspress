@@ -3,21 +3,81 @@ aliases:
   - Vox Catoblepae
 title: Vox Catoblepae
 description: Антология Международной деканнале
+date: 2025-12-16
 tags:
 ---
 ## Антология Международной деканнале «Vox Catoblepae» 2025
-<script async src="https://telegram.org/js/telegram-widget.js?22"
-        data-telegram-post="catoblepaspress/152"
-        data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22"
-        data-telegram-post="catoblepaspress/158"
-        data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22"
-        data-telegram-post="catoblepaspress/164"
-        data-width="100%"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22"
-        data-telegram-post="catoblepaspress/166"
-        data-width="100%"></script>
+<section class="issue-reader vox-reader" aria-label="Антология Vox Catoblepae 2025">
+<div class="issue-toolbar"><button type="button" data-issue-prev aria-label="Предыдущая страница">←</button><span data-issue-status aria-live="polite">1 / 16</span><button type="button" data-issue-next aria-label="Следующая страница">→</button></div>
+<div class="issue-pages" tabindex="0" aria-label="Страницы антологии">
+<figure class="issue-page">
+<a href="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-01.webp"><img src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-01.webp" alt="Обложка" loading="lazy" width="1024" height="1280"></a>
+<figcaption>1 / 16 — Обложка</figcaption>
+</figure>
+<figure class="issue-page">
+<video controls playsinline preload="none" poster="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-02.webp" src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-02.mp4" aria-label="Wanna Talk"></video>
+<figcaption>2 / 16 — Wanna Talk</figcaption>
+</figure>
+<figure class="issue-page">
+<video controls playsinline preload="none" poster="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-03.webp" src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-03.mp4" aria-label="Sense of Decay"></video>
+<figcaption>3 / 16 — Sense of Decay</figcaption>
+</figure>
+<figure class="issue-page">
+<video controls playsinline preload="none" poster="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-04.webp" src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-04.mp4" aria-label="Распад"></video>
+<figcaption>4 / 16 — Распад</figcaption>
+</figure>
+<figure class="issue-page">
+<video controls playsinline preload="none" poster="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-05.webp" src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-05.mp4" aria-label="Love"></video>
+<figcaption>5 / 16 — Love</figcaption>
+</figure>
+<figure class="issue-page">
+<video controls playsinline preload="none" poster="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-06.webp" src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-06.mp4" aria-label="Прохожий"></video>
+<figcaption>6 / 16 — Прохожий</figcaption>
+</figure>
+<figure class="issue-page">
+<video controls playsinline preload="none" poster="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-07.webp" src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-07.mp4" aria-label="Катя Клу"></video>
+<figcaption>7 / 16 — Катя Клу</figcaption>
+</figure>
+<figure class="issue-page">
+<video controls playsinline preload="none" poster="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-08.webp" src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-08.mp4" aria-label="Камилла Байчибаева"></video>
+<figcaption>8 / 16 — Камилла Байчибаева</figcaption>
+</figure>
+<figure class="issue-page">
+<video controls playsinline preload="none" poster="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-09.webp" src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-09.mp4" aria-label="Юрий Оленев"></video>
+<figcaption>9 / 16 — Юрий Оленев</figcaption>
+</figure>
+<figure class="issue-page">
+<video controls playsinline preload="none" poster="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-10.webp" src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-10.mp4" aria-label="Владимир Печетов"></video>
+<figcaption>10 / 16 — Владимир Печетов</figcaption>
+</figure>
+<figure class="issue-page">
+<video controls playsinline preload="none" poster="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-11.webp" src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-11.mp4" aria-label="Маша Козулина"></video>
+<figcaption>11 / 16 — Маша Козулина</figcaption>
+</figure>
+<figure class="issue-page">
+<video controls playsinline preload="none" poster="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-12.webp" src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-12.mp4" aria-label="Юрий Шипков"></video>
+<figcaption>12 / 16 — Юрий Шипков</figcaption>
+</figure>
+<figure class="issue-page">
+<video controls playsinline preload="none" poster="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-13.webp" src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-13.mp4" aria-label="Севак Погосян"></video>
+<figcaption>13 / 16 — Севак Погосян</figcaption>
+</figure>
+<figure class="issue-page">
+<video controls playsinline preload="none" poster="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-14.webp" src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-14.mp4" aria-label="Маруся Навка"></video>
+<figcaption>14 / 16 — Маруся Навка</figcaption>
+</figure>
+<figure class="issue-page">
+<video controls playsinline preload="none" poster="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-15.webp" src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-15.mp4" aria-label="Елизавета Калужская"></video>
+<figcaption>15 / 16 — Елизавета Калужская</figcaption>
+</figure>
+<figure class="issue-page">
+<a href="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-16.webp"><img src="https://media.catoblepaspress.ru/projects/voxcatoblepae/2025/page-16.webp" alt="Выходные данные" loading="lazy" width="1024" height="1280"></a>
+<figcaption>16 / 16 — Выходные данные</figcaption>
+</figure>
+</div>
+</section>
+
+Исходные публикации в Telegram: [1](https://t.me/catoblepaspress/152), [2](https://t.me/catoblepaspress/158), [3](https://t.me/catoblepaspress/164), [4](https://t.me/catoblepaspress/166).
 
 Представляем вашему вниманию антологию Международной деканнале«Vox Catoblepae»!  
 

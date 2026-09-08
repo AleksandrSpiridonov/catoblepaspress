@@ -36,6 +36,10 @@
   figcaption { font-size: 0.85rem; color: var(--gray); margin: 0.5rem 0; }
 }
 
+.vox-reader .issue-page img, .vox-reader .issue-page video { aspect-ratio: 4 / 5; }
+
+.issue-reader-3x4 .issue-page img, .issue-reader-3x4 .issue-page video { aspect-ratio: 3 / 4; }
+
 .video-wrapper {
   position: relative;
   width: 100%; // занимает всю доступную ширину
