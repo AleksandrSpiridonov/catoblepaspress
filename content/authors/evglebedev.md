@@ -3,7 +3,7 @@ title: Евгений Лебедев
 aliases:
   - Евгений Лебедев
 description: Спекулятивный поэт
-avatar: "[[evglebedev.webp]]"
+avatar: "https://media.catoblepaspress.ru/authors/evglebedev/portrait.webp"
 tags:
   - поэт
   - фланёр
@@ -11,7 +11,7 @@ books:
   - "[[mistakes|Ошибки молодости]]"
   - "[[anxiety|Тревога дней]]"
 ---
-![[evglebedev.webp|Евгений Лебедев]]
+<img src="https://media.catoblepaspress.ru/authors/evglebedev/portrait.webp" alt="Евгений Лебедев" loading="lazy">
 ## Об авторе
 Евгений Лебедев (1993, Санкт-Петербург) — спекулятивный поэт и фланёр. Выпускник философского факультета СПбГУ.
 

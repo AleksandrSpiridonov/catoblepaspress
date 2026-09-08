@@ -3,12 +3,12 @@ aliases:
   - Ксения Спиридонова
 title: Ксения Спиридонова
 description: Акварелист, художник-реставратор, керамист
-avatar: "[[xeniaspiridonova.webp]]"
+avatar: "https://media.catoblepaspress.ru/authors/xeniaspiridonova/portrait.webp"
 tags:
   - художник
   - реставратор
 ---
-![[xeniaspiridonova.webp|Ксения Спиридонова]]
+<img src="https://media.catoblepaspress.ru/authors/xeniaspiridonova/portrait.webp" alt="Ксения Спиридонова" loading="lazy">
 ## О художнике
 Ксения Спиридонова (р. 1994, Санкт-Петербург) — профессиональный художник-реставратор, акварелист, керамист, член Санкт-Петербургского общества акварелистов. Работы находятся в музее Капеллы Санкт-Петербурга, в частных собраниях России и за рубежом.
 

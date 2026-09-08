@@ -3,11 +3,11 @@ aliases:
   - Александр Спиридонов-мл.
 title: Александр Спиридонов-мл.
 description: Издатель
-avatar: "[[asp.webp]]"
+avatar: "https://media.catoblepaspress.ru/authors/asp/portrait.webp"
 tags:
   - издатель
 ---
-![[asp.webp|Александр Спиридонов]]
+<img src="https://media.catoblepaspress.ru/authors/asp/portrait.webp" alt="Александр Спиридонов-мл." loading="lazy">
 ## Об авторе
 Александр Спиридонов-мл. (1992, Санкт-Петербург) — издатель, выпускник философского факультета СПбГУ. Основатель издательского дома А.А. Спиридонова, издательства «Катоблепас» и одноименного журнала.
 

@@ -3,12 +3,12 @@ aliases:
   - Полина Иониди
 title: Полина Иониди
 description: Фотограф и режиссёр
-avatar: "[[ionidi.webp]]"
+avatar: "https://media.catoblepaspress.ru/authors/ionidi/portrait.webp"
 tags:
   - фотограф
   - режиссёр
 ---
-![[ionidi.webp]]
+<img src="https://media.catoblepaspress.ru/authors/ionidi/portrait.webp" alt="Полина Иониди" loading="lazy">
 ## Об авторе
 Полина Иониди (1994, Москва) — профессиональный фотограф, кинорежиссёр.
 

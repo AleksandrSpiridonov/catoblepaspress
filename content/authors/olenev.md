@@ -6,9 +6,9 @@ description: Философ, поэт, эссеист
 tags:
   - философ
   - поэт
-avatar: "[[olenev.webp]]"
+avatar: "https://media.catoblepaspress.ru/authors/olenev/portrait.webp"
 ---
-![[olenev.webp|Юрий Оленев]]
+<img src="https://media.catoblepaspress.ru/authors/olenev/portrait.webp" alt="Юрий Оленев" loading="lazy">
 ## Об авторе
 Философ, поэт, эссеист. Выпускник философского факультета СПбГУ. Область интересов: история культуры, религия и мифология
 

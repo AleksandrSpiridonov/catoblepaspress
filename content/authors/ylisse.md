@@ -3,12 +3,12 @@ aliases:
   - Елизавета Калужская
 title: Елизавета Калужская
 description: Междисциплинарный художник, педагог, куратор и исследователь
-avatar: "[[ylisse.webp]]"
+avatar: "https://media.catoblepaspress.ru/authors/ylisse/portrait.webp"
 tags:
   - художник
   - куратор
 ---
-![[ylisse.webp|Елизавета Калужская]]
+<img src="https://media.catoblepaspress.ru/authors/ylisse/portrait.webp" alt="Елизавета Калужская" loading="lazy">
 ## О художнике
 Елизавета Калужская (1992, Санкт-Петербург) — междисциплинарный художник, педагог, куратор и исследователь. Живёт и работает в Лондоне. 
 

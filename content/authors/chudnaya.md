@@ -3,12 +3,12 @@ aliases:
   - Маша Чудная
 title: Маша Чудная
 description: Профессиональный фотограф документального и портретного жанров, поэт
-avatar: "[[chudnaya.webp]]"
+avatar: "https://media.catoblepaspress.ru/authors/chudnaya/portrait.webp"
 tags:
   - фотограф
   - поэт
 ---
-![[chudnaya.webp]]
+<img src="https://media.catoblepaspress.ru/authors/chudnaya/portrait.webp" alt="Маша Чудная" loading="lazy">
 ## Об авторе
 Маша Чудная (1994, Санкт-Петербург) — профессиональный фотограф документального и портретного жанров, поэт. Выпускница академии документальной и арт-фотографии «Фотографика» и СПбГИКа (фото/видео). 
 
