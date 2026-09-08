@@ -21,7 +21,7 @@ cover: "[[lebordeldesmuses.webp]]"
 Возрастное ограничение: 18+  
 Содержит нецензурную брань
 
-[Скачивая, вы подтверждаете, что Вам есть 18 лет](https://s3.twcstorage.ru/catoblepaspress/books/lebordeldesmuses.epub) 
+[Скачивая, вы подтверждаете, что Вам есть 18 лет](https://media.catoblepaspress.ru/books/lebordeldesmuses.epub)
 ## Конкурс перевода
 > [!info] Приём переводов завершён
 > Конкурс проходил до 31 июля 2026 года. Следите за результатами и новыми проектами в [Telegram издательства](https://t.me/catoblepaspress).
