@@ -7,6 +7,7 @@ import type {
 interface Options {
   englishBaseUrl: string
   russianBaseUrl: string
+  chineseBaseUrl: string
 }
 
 const styles = `.language-switcher {
@@ -36,19 +37,35 @@ export const LanguageSwitcher: QuartzComponentConstructor<Options> = (opts) => {
     const currentHostname = currentUrl.hostname
     const englishHostname = new URL(opts.englishBaseUrl).hostname
     const isEnglishSite = currentHostname === englishHostname
-    const targetUrl = new URL(isEnglishSite ? opts.russianBaseUrl : opts.englishBaseUrl)
-    const slug = fileData.slug ?? "index"
-    const basePath = targetUrl.pathname.replace(/\/$/, "")
-    targetUrl.pathname = slug === "index" ? `${basePath}/` : `${basePath}/${slug}`
-
+    const slug = (fileData.slug ?? "index").replace(/\/index$/, "/")
+    const languages = [
+      {
+        label: isEnglishSite ? "RU" : "EN",
+        name: isEnglishSite ? "Switch to Russian" : "Перейти на английскую версию",
+        base: isEnglishSite ? opts.russianBaseUrl : opts.englishBaseUrl,
+      },
+      {
+        label: "中文",
+        name: isEnglishSite ? "Switch to Chinese" : "Перейти на китайскую версию",
+        base: opts.chineseBaseUrl,
+      },
+    ]
     return (
-      <a
-        aria-label={isEnglishSite ? "Перейти на русскую версию" : "Switch to English"}
-        class={`${displayClass ?? ""} language-switcher`.trim()}
-        href={targetUrl.toString()}
+      <nav
+        class={displayClass ?? ""}
+        aria-label={isEnglishSite ? "Language versions" : "Языковые версии"}
+        style={{ display: "flex", gap: "0.5rem" }}
       >
-        {isEnglishSite ? "RU" : "EN"}
-      </a>
+        {languages.map(({ label, name, base }) => {
+          const url = new URL(base)
+          url.pathname = url.pathname.replace(/\/$/, "") + (slug === "index" ? "/" : "/" + slug)
+          return (
+            <a class="language-switcher" href={url.toString()} aria-label={name} title={name}>
+              {label}
+            </a>
+          )
+        })}
+      </nav>
     )
   }
 

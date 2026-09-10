@@ -1,5 +1,4 @@
 import { jsx } from "preact/jsx-runtime"
-
 const styles = `.language-switcher {
   align-items: center;
   background: none;
@@ -17,7 +16,6 @@ const styles = `.language-switcher {
   text-decoration: none;
   width: 24px;
 }`
-
 const LanguageSwitcher = (opts) => {
   const Component = ({ cfg, fileData, displayClass }) => {
     const configuredBase = cfg.baseUrl ?? opts.russianBaseUrl
@@ -27,21 +25,43 @@ const LanguageSwitcher = (opts) => {
     const currentHostname = currentUrl.hostname
     const englishHostname = new URL(opts.englishBaseUrl).hostname
     const isEnglishSite = currentHostname === englishHostname
-    const targetUrl = new URL(isEnglishSite ? opts.russianBaseUrl : opts.englishBaseUrl)
-    const slug = fileData.slug ?? "index"
-    const basePath = targetUrl.pathname.replace(/\/$/, "")
-    targetUrl.pathname = slug === "index" ? `${basePath}/` : `${basePath}/${slug}`
-
-    return jsx("a", {
-      "aria-label": isEnglishSite ? "Перейти на русскую версию" : "Switch to English",
-      class: `${displayClass ?? ""} language-switcher`.trim(),
-      href: targetUrl.toString(),
-      children: isEnglishSite ? "RU" : "EN",
+    const slug = (fileData.slug ?? "index").replace(/\/index$/, "/")
+    const languages = [
+      {
+        label: isEnglishSite ? "RU" : "EN",
+        name: isEnglishSite
+          ? "Switch to Russian"
+          : "\u041F\u0435\u0440\u0435\u0439\u0442\u0438 \u043D\u0430 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u0443\u044E \u0432\u0435\u0440\u0441\u0438\u044E",
+        base: isEnglishSite ? opts.russianBaseUrl : opts.englishBaseUrl,
+      },
+      {
+        label: "\u4E2D\u6587",
+        name: isEnglishSite
+          ? "Switch to Chinese"
+          : "\u041F\u0435\u0440\u0435\u0439\u0442\u0438 \u043D\u0430 \u043A\u0438\u0442\u0430\u0439\u0441\u043A\u0443\u044E \u0432\u0435\u0440\u0441\u0438\u044E",
+        base: opts.chineseBaseUrl,
+      },
+    ]
+    return /* @__PURE__ */ jsx("nav", {
+      class: displayClass ?? "",
+      "aria-label": isEnglishSite
+        ? "Language versions"
+        : "\u042F\u0437\u044B\u043A\u043E\u0432\u044B\u0435 \u0432\u0435\u0440\u0441\u0438\u0438",
+      style: { display: "flex", gap: "0.5rem" },
+      children: languages.map(({ label, name, base }) => {
+        const url = new URL(base)
+        url.pathname = url.pathname.replace(/\/$/, "") + (slug === "index" ? "/" : "/" + slug)
+        return /* @__PURE__ */ jsx("a", {
+          class: "language-switcher",
+          href: url.toString(),
+          "aria-label": name,
+          title: name,
+          children: label,
+        })
+      }),
     })
   }
-
   Component.css = styles
   return Component
 }
-
 export { LanguageSwitcher }
