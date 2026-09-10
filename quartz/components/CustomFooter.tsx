@@ -1,5 +1,6 @@
 import { version } from "../../package.json"
 import { QuartzComponent, QuartzComponentConstructor } from "./types"
+// @ts-expect-error Quartz bundles .inline.ts files as JavaScript source strings.
 import artistGalleryScript from "./scripts/artist-gallery.inline"
 
 interface Options {
