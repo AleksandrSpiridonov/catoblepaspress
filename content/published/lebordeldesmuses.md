@@ -9,7 +9,7 @@ year: 2026
 status: Вышло
 formats:
   - EPUB
-cover: "[[lebordeldesmuses.webp]]"
+cover: "https://catoblepaspress.ru/images/lebordeldesmuses.webp"
 ---
 ![[lebordeldesmuses.webp]]
 ## Выходные данные
