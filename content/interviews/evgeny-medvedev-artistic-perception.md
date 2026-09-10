@@ -11,10 +11,9 @@ date: 2026-02-05
 > [!video] Смотреть интервью
 > Интервью опубликовано в [[№ 21 (7)|21 выпуске]] журнала «Катоблепас».
 
-<video controls playsinline preload="metadata" style="width: 100%; height: auto;" aria-label="Интервью с Евгением Медведевым">
-  <source src="https://media.catoblepaspress.ru/journal/issue-07/ru/page-03.mp4" type="video/mp4">
-  <a href="https://media.catoblepaspress.ru/journal/issue-07/ru/page-03.mp4">Открыть видео</a>
-</video>
+<iframe src="https://www.youtube-nocookie.com/embed/aOax5DNx30Y" title="Интервью с Евгением Медведевым" width="100%" style="aspect-ratio: 16 / 9; height: auto; border: 0;" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Язык субтитров можно выбрать в настройках YouTube-плеера.
 
 Художник [[medvedevartist|Евгений Медведев]] рассказывает об учёбе в Императорской Академии художеств, работе с натурой, автопортретах, импровизации и собственной книге о художественном восприятии.
 
