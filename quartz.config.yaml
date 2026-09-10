@@ -184,6 +184,7 @@ plugins:
     options:
       englishBaseUrl: https://en.catoblepaspress.ru
       russianBaseUrl: https://catoblepaspress.ru
+      chineseBaseUrl: https://zh.catoblepaspress.ru
     layout:
       position: left
       priority: 35
