@@ -7,6 +7,7 @@ import type {
 interface Options {
   englishBaseUrl: string
   russianBaseUrl: string
+  hindiBaseUrl: string
   chineseBaseUrl: string
 }
 
@@ -48,6 +49,11 @@ export const LanguageSwitcher: QuartzComponentConstructor<Options> = (opts) => {
         label: "中文",
         name: isEnglishSite ? "Switch to Chinese" : "Перейти на китайскую версию",
         base: opts.chineseBaseUrl,
+      },
+      {
+        label: "HI",
+        name: isEnglishSite ? "Switch to Hindi" : "Перейти на хинди",
+        base: opts.hindiBaseUrl,
       },
     ]
     return (
