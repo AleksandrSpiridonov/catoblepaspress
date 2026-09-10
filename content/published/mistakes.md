@@ -10,7 +10,7 @@ status: Вышло
 formats:
   - Онлайн
   - PDF
-cover: "[[mistakesCover.webp]]"
+cover: "https://catoblepaspress.ru/images/mistakescover.webp"
 ---
 ![[mistakesCover.webp]]
 ## Выходные данные

@@ -9,7 +9,7 @@ status: Вышло
 formats:
   - Онлайн
   - PDF
-cover: "[[anxietyCover.webp]]"
+cover: "https://catoblepaspress.ru/images/anxietycover.webp"
 ---
 ![[anxietyCover.webp]]
 ## Выходные данные

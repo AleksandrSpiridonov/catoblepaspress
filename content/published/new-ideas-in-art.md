@@ -8,7 +8,7 @@ year: 2026
 status: Готовится к изданию
 formats:
   - Печатная книга
-cover: "[[novye-idei-v-iskusstve-book-mockup-square.webp]]"
+cover: "https://catoblepaspress.ru/images/novye-idei-v-iskusstve-book-mockup-square.webp"
 ---
 
 ![[novye-idei-v-iskusstve-book-mockup-square.webp]]

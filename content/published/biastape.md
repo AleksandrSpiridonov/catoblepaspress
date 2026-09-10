@@ -9,7 +9,7 @@ status: Доступно для заказа
 formats:
   - Печатная книга
   - PDF
-cover: "[[biastape.webp]]"
+cover: "https://catoblepaspress.ru/images/biastape.webp"
 ---
 
 ![[biastape.webp]]
