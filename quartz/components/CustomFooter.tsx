@@ -1,5 +1,6 @@
 import { version } from "../../package.json"
 import { QuartzComponent, QuartzComponentConstructor } from "./types"
+import artistGalleryScript from "./scripts/artist-gallery.inline"
 
 interface Options {
   copyrightText: string
@@ -34,7 +35,7 @@ const CustomFooter: QuartzComponentConstructor<Options> = (opts) => {
     </footer>
   )
 
-  Footer.afterDOMLoaded = `
+  Footer.afterDOMLoaded = artistGalleryScript + `
     const openIssueZoom = (link, english) => {
       const reader = link.closest('.issue-reader')
       const pages = Array.from(reader.querySelectorAll('.issue-page'))
