@@ -45,9 +45,8 @@ books:
 <figure class="artist-gallery-slide"><img src="https://media.catoblepaspress.ru/authors/medvedevartist/gallery/work-11.webp" alt="Работа Евгения Медведева — 11" width="420" height="460" loading="lazy" decoding="async"></figure>
 <figure class="artist-gallery-slide"><img src="https://media.catoblepaspress.ru/authors/medvedevartist/gallery/work-12.webp" alt="Работа Евгения Медведева — 12" width="420" height="440" loading="lazy" decoding="async"></figure>
 <figure class="artist-gallery-slide"><img src="https://media.catoblepaspress.ru/authors/medvedevartist/gallery/work-13.webp" alt="Работа Евгения Медведева — 13" width="420" height="420" loading="lazy" decoding="async"></figure>
-<figure class="artist-gallery-slide"><img src="https://media.catoblepaspress.ru/authors/medvedevartist/gallery/work-14.webp" alt="Работа Евгения Медведева — 14" width="420" height="451" loading="lazy" decoding="async"></figure>
 </div>
-<div class="artist-gallery-controls"><button type="button" data-art-prev aria-label="Предыдущая работа">←</button><span data-art-status aria-live="polite" aria-atomic="true">1 / 14</span><button type="button" data-art-next aria-label="Следующая работа">→</button></div>
+<div class="artist-gallery-controls"><button type="button" data-art-prev aria-label="Предыдущая работа">←</button><span data-art-status aria-live="polite" aria-atomic="true">1 / 13</span><button type="button" data-art-next aria-label="Следующая работа">→</button></div>
 <div class="artist-gallery-thumbs" role="group" aria-label="Выбрать работу">
 <button type="button" data-art-index="0" aria-label="Показать работу 1" aria-pressed="true"><img src="https://media.catoblepaspress.ru/authors/medvedevartist/gallery/work-01.webp" alt="" width="50" height="58" loading="lazy"></button>
 <button type="button" data-art-index="1" aria-label="Показать работу 2" aria-pressed="false"><img src="https://media.catoblepaspress.ru/authors/medvedevartist/gallery/work-02.webp" alt="" width="50" height="58" loading="lazy"></button>
@@ -62,7 +61,6 @@ books:
 <button type="button" data-art-index="10" aria-label="Показать работу 11" aria-pressed="false"><img src="https://media.catoblepaspress.ru/authors/medvedevartist/gallery/work-11.webp" alt="" width="50" height="58" loading="lazy"></button>
 <button type="button" data-art-index="11" aria-label="Показать работу 12" aria-pressed="false"><img src="https://media.catoblepaspress.ru/authors/medvedevartist/gallery/work-12.webp" alt="" width="50" height="58" loading="lazy"></button>
 <button type="button" data-art-index="12" aria-label="Показать работу 13" aria-pressed="false"><img src="https://media.catoblepaspress.ru/authors/medvedevartist/gallery/work-13.webp" alt="" width="50" height="58" loading="lazy"></button>
-<button type="button" data-art-index="13" aria-label="Показать работу 14" aria-pressed="false"><img src="https://media.catoblepaspress.ru/authors/medvedevartist/gallery/work-14.webp" alt="" width="50" height="58" loading="lazy"></button>
 </div>
 </section>
 
