@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3D Graph Visualization</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: transparent !important; /* Transparent background */
+      background-image: radial-gradient(circle, rgba(120, 120, 120, 0.35) 1.5px, transparent 1.5px) !important;
+      background-size: 30px 30px !important;
+      background-position: 0 0;
+      font-family: 'Inter', sans-serif;
+    }
+    :fullscreen, ::backdrop {
+      background-color: #fcfcfc !important;
+    }
+    :-webkit-full-screen {
+      background-color: #fcfcfc !important;
+    }
+    #legend-overlay {
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      color: #333;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(220, 220, 220, 0.8);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      animation: fadeIn 1.2s ease-out;
+      min-width: 140px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 12px;
+    }
+    .legend-label {
+      font-size: 13px;
+      color: #555; 
+      text-transform: capitalize;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #bottom-bar {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+    #nav-text {
+      color: #666;
+      font-size: 13px;
+      padding: 6px 16px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(220, 220, 220, 0.5);
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    #fullscreen-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(220, 220, 220, 0.8);
+      border-radius: 10px;
+      padding: 8px 14px;
+      color: #444;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 11;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s;
+    }
+    #fullscreen-btn:hover {
+      background: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+    #fullscreen-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+    #ui-top-left {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    #search-box-row {
+      display: flex;
+      gap: 6px;
+      height: 38px;
+    }
+    #search-input {
+      width: 200px;
+      padding: 0 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(220, 220, 220, 0.8);
+      background: rgba(255, 255, 255, 0.85);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #333;
+      outline: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s;
+    }
+    #settings-btn {
+      width: 38px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(220, 220, 220, 0.8);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #search-results {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      max-height: 300px;
+      overflow-y: auto;
+      display: none;
+      border: 1px solid rgba(220,220,220,0.5);
+      width: 200px;
+    }
+    .search-result-item {
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #555;
+      cursor: pointer;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .search-result-item:hover {
+      background: #f8f8f8;
+      color: #000;
+    }
+    #settings-panel {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(220,220,220,0.5);
+      padding: 16px;
+      width: 250px;
+      display: none;
+      font-family: 'Inter', sans-serif;
+    }
+    .slider-row {
+      font-size: 12px;
+      color: #555;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 12px;
+    }
+    .slider-row span { font-weight: 600; }
+    .slider-row input[type=range] { width: 100%; }
+    .cb-row {
+      font-size: 13px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    #timeline-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 8px 20px;
+      border-radius: 20px;
+      pointer-events: auto;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    #timeline-slider {
+      flex: 1;
+      width: 250px;
+      accent-color: #555;
+      cursor: pointer;
+    }
+    #node-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 12px;
+      padding: 14px;
+      width: 280px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      font-family: 'Inter', sans-serif;
+      z-index: 100;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      transform: translate(15px, 15px);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .tooltip-title {
+      font-weight: 600;
+      font-size: 15px;
+      margin: 0;
+    }
+    .tooltip-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      align-self: flex-start;
+      margin-bottom: 2px;
+    }
+    .tooltip-desc {
+      font-size: 12.5px;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    /* Адаптация для мобильных устройств */
+    @media (max-width: 768px) {
+      #node-tooltip {
+        top: auto !important;
+        left: 50% !important;
+        bottom: 85px !important;
+        transform: translateX(-50%) !important;
+        width: 90% !important;
+        max-width: 340px;
+        box-sizing: border-box;
+      }
+      #bottom-bar {
+        bottom: 15px;
+        flex-direction: column;
+        gap: 8px;
+      }
+      #nav-text {
+        font-size: 9px;
+        padding: 4px 10px;
+        text-align: center;
+        max-width: 90%;
+        box-sizing: border-box;
+        line-height: 1.2;
+      }
+      #timeline-container {
+        width: 90%;
+        padding: 6px 14px;
+        box-sizing: border-box;
+        margin-bottom: 0;
+        justify-content: space-between;
+      }
+      #timeline-slider {
+        width: auto !important;
+        flex: 1;
+        margin: 0 10px;
+      }
+      #legend-overlay {
+        top: 70px;
+        right: 15px;
+        min-width: 120px;
+        padding: 12px;
+      }
+      #search-input {
+        width: 140px;
+      }
+      #fullscreen-btn {
+        top: 20px;
+        right: 15px;
+        padding: 8px;
+        font-size: 0; /* Скрываем текст "На весь экран" */
+        gap: 0;
+      }
+      #fullscreen-btn svg {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+      }
+      #settings-panel {
+        left: 15px;
+        width: 260px;
+      }
+    }
+  </style>
+  <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three-spritetext@1.8.1/dist/three-spritetext.min.js"></script>
+  <script src="https://unpkg.com/3d-force-graph"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="ui-top-left">
+    <div id="search-box-row">
+      <input type="text" id="search-input" placeholder="Поиск заметок..." autocomplete="off">
+      <button id="settings-btn" onclick="toggleSettingsPanel()">⚙️</button>
+    </div>
+    <div id="search-results"></div>
+    <div id="settings-panel">
+      <div style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #333;">Настройки графа</div>
+      <div class="slider-row">
+        <span>Длина связей</span>
+        <input type="range" id="link-dist" min="20" max="200" value="80">
+      </div>
+      <div class="slider-row">
+        <span>Отталкивание</span>
+        <input type="range" id="charge-str" min="-300" max="0" value="-150">
+      </div>
+      <div class="slider-row" style="margin-top: 4px;">
+        <span style="margin-bottom: 2px;">Форма графа</span>
+        <select id="graph-shape" style="width:100%; padding:4px; font-family:'Inter',sans-serif; border-radius:4px; border:1px solid #ccc; background:#fff; outline:none; font-size:12px; color:#333;">
+          <option value="cloud">Свободное облако</option>
+          <option value="layers">Гравитационные слои</option>
+        </select>
+      </div>
+      <label class="cb-row" style="margin-top: 8px;">
+        <input type="checkbox" id="auto-rotate-cb" checked>
+        Авто-вращение (Idle)
+      </label>
+      <label class="cb-row" style="margin-top: 8px;">
+        <input type="checkbox" id="particles-cb" checked>
+        Частицы (Пыльца)
+      </label>
+    </div>
+  </div>
+  <div id="legend-overlay"></div>
+  <div id="node-tooltip"></div>
+  <div id="bottom-bar">
+    <div id="timeline-container">
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.5px; opacity: 0.7;">ИСТОКИ</span>
+      <input type="range" id="timeline-slider" min="0" max="1" step="0.01" value="1" title="Эволюция базы">
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.5px; opacity: 0.7;">СЕЙЧАС</span>
+    </div>
+    <div id="nav-text">Левый клик: вращение, Скролл/Средний клик: масштаб, Правый клик: панорамирование, Двойной клик: открыть страницу</div>
+  </div>
+  <button id="fullscreen-btn" onclick="toggleFullScreen()">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    На весь экран
+  </button>
+  <div id="3d-graph"></div>
+
+  <script>
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.log(`Error attempting to enable fullscreen: ${err.message}`);
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    function toggleSettingsPanel() {
+      const p = document.getElementById('settings-panel');
+      p.style.display = p.style.display === 'none' ? 'block' : 'none';
+      document.getElementById('search-results').style.display = 'none';
+    }
+
+    function toggleLegend() {
+      const items = document.getElementById('legend-items');
+      const arrow = document.getElementById('legend-arrow');
+      if (items.style.maxHeight === '0px') {
+        items.style.maxHeight = '500px';
+        items.style.marginTop = '16px';
+        arrow.style.transform = 'rotate(0deg)';
+      } else {
+        items.style.maxHeight = '0px';
+        items.style.marginTop = '0px';
+        arrow.style.transform = 'rotate(-90deg)';
+      }
+    }
+
+    const tagColors = {
+      'автор': '#D08C60',      /* warmer caramel */
+      'журнал': '#3D8C72',     /* deeper sage/teal */
+      'публикация': '#4A78A6', /* deeper steel blue */
+      'проект': '#C1664A',     /* richer terracotta */
+      'изданное': '#8A5A7B',   /* richer plum */
+      'страница': '#8D99AE'    /* cooler slate */
+    };
+
+    async function initGraph() {
+      let hasFetchErrors = false;
+      let notes = [];
+      let connections = [];
+
+      try {
+        const response = await fetch('/static/contentIndex.json');
+        if (!response.ok) throw new Error('Cannot load contentIndex');
+        const data = await response.json();
+
+        for (const [slug, item] of Object.entries(data)) {
+          if (slug.toLowerCase() === 'index') continue;
+
+          let tag = 'страница';
+          if (slug.includes('authors/')) tag = 'автор';
+          else if (slug.includes('journal/')) tag = 'журнал';
+          else if (slug.includes('publications/')) tag = 'публикация';
+          else if (slug.includes('projects/')) tag = 'проект';
+          else if (slug.includes('published/')) tag = 'изданное';
+
+          notes.push({
+            id: slug,
+            title: item.title || slug,
+            file: '/' + slug, 
+            description: item.content ? item.content.replace(/\s+/g, ' ').trim().substring(0, 180) + '...' : '',
+            tag: tag,
+            size: 4 + Math.random() * 6,
+            x: Math.random() * 100 - 50,
+            y: Math.random() * 100 - 50,
+            z: Math.random() * 100 - 50
+          });
+
+          if (item.links) {
+            for (const target of item.links) {
+              const targetSlug = target.split('#')[0];
+              connections.push({ source: slug, target: targetSlug });
+            }
+          }
+        }
+      } catch (e) {
+        hasFetchErrors = true;
+        console.warn('Ошибка при загрузке:', e);
+      }
+
+      const validNodeIds = new Set(notes.map(n => n.id));
+      connections = connections.filter(c => validNodeIds.has(c.target));
+
+      const connectedIds = new Set();
+      const connectionCounts = {};
+      
+      connections.forEach(c => {
+        connectedIds.add(c.source);
+        connectedIds.add(c.target);
+
+        connectionCounts[c.source] = (connectionCounts[c.source] || 0) + 1;
+        connectionCounts[c.target] = (connectionCounts[c.target] || 0) + 1;
+      });
+
+      notes = notes.filter(n => {
+        if (connectedIds.has(n.id)) {
+          n.size = 3 + (connectionCounts[n.id] || 0) * 2;
+          return true;
+        }
+        return false;
+      });
+
+      notes.forEach(node => { node.neighbors = []; });
+      connections.forEach(link => {
+        const a = notes.find(n => n.id === link.source);
+        const b = notes.find(n => n.id === link.target);
+        if (a && b) {
+          a.neighbors.push(b);
+          b.neighbors.push(a);
+        }
+      });
+
+      if (hasFetchErrors || notes.length === 0) {
+        const lgnd = document.getElementById('legend-overlay');
+        if (lgnd) lgnd.style.display = 'none';
+      } else {
+        const usedTags = [...new Set(notes.map(n => n.tag))];
+        const legendDiv = document.getElementById('legend-overlay');
+        
+        let legendHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; cursor:pointer;" onclick="toggleLegend()">
+            <h2 style="font-size:16px; margin:0; color: #333; user-select:none;">Разделы</h2>
+            <span id="legend-arrow" style="font-size:12px; color:#555; transition: transform 0.3s;">▼</span>
+          </div>
+          <div id="legend-items" style="margin-top: 16px; overflow: hidden; transition: all 0.3s ease-out; max-height: 500px;">
+        `;
+        
+        usedTags.forEach(tag => {
+          const color = tagColors[tag] || tagColors['страница'];
+          legendHTML += `
+            <div class="legend-item" style="cursor:pointer; transition: opacity 0.2s;" onclick="window.toggleTagFilter('${tag}')" id="legend-${tag}">
+              <div class="legend-color" style="background: ${color}; box-shadow: 0 0 10px ${color}80;"></div>
+              <div class="legend-label">#${tag}</div>
+            </div>
+          `;
+        });
+        legendHTML += '</div>';
+        legendDiv.innerHTML = legendHTML;
+      }
+      
+      const maxLinks = Math.max(...Object.values(connectionCounts), 1);
+      
+      let allDates = [];
+      notes.forEach(n => {
+         if (n.date) {
+            n.realDate = new Date(n.date).getTime();
+            if (!isNaN(n.realDate)) allDates.push(n.realDate);
+         }
+      });
+      
+      const minDate = allDates.length > 0 ? Math.min(...allDates) : 0;
+      const maxDate = allDates.length > 0 ? Math.max(...allDates) : 1;
+      const dateRange = maxDate - minDate || 1;
+
+      notes.forEach(n => {
+         if (n.realDate && !isNaN(n.realDate)) {
+             n.birthTime = (n.realDate - minDate) / dateRange;
+         } else {
+             const linksCount = connectionCounts[n.id] || 0;
+             const score = linksCount / maxLinks;
+             n.birthTime = Math.random() * 0.15 + (1.0 - Math.pow(score, 0.2)) * 0.85;
+         }
+      });
+
+      const gData = {
+        nodes: notes,
+        links: connections
+      };
+
+      let hoverNode = null;
+      let lastClickTime = 0;
+      let lastClickedNode = null;
+      window.activeTag = null;
+      
+      let isIdle = true;
+      let idleTimeout = null;
+      let autoRotateAngle = 0;
+      
+      const resetIdle = () => {
+        isIdle = false;
+        clearTimeout(idleTimeout);
+        idleTimeout = setTimeout(() => { isIdle = true; }, 4000);
+      };
+      
+      let mouseX = 0, mouseY = 0;
+      document.getElementById('3d-graph').addEventListener('mousemove', e => {
+         mouseX = e.clientX;
+         mouseY = e.clientY;
+         const tip = document.getElementById('node-tooltip');
+         if (tip && tip.style.opacity === '1') {
+           tip.style.left = mouseX + 'px';
+           tip.style.top = mouseY + 'px';
+         }
+      });
+      document.getElementById('3d-graph').addEventListener('mousedown', resetIdle);
+      document.getElementById('3d-graph').addEventListener('touchstart', resetIdle);
+      document.getElementById('3d-graph').addEventListener('wheel', resetIdle);
+
+      const searchInput = document.getElementById('search-input');
+      const searchResults = document.getElementById('search-results');
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        searchResults.innerHTML = '';
+        if (query.length === 0) {
+           searchResults.style.display = 'none';
+           return;
+        }
+        
+        const matches = gData.nodes.filter(n => n.title.toLowerCase().includes(query)).slice(0, 10);
+        if (matches.length > 0) {
+           searchResults.style.display = 'block';
+           document.getElementById('settings-panel').style.display = 'none';
+           matches.forEach(node => {
+             const div = document.createElement('div');
+             div.className = 'search-result-item';
+             div.textContent = node.title;
+             div.onclick = () => {
+                const distance = 120;
+                const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+                const newPos = node.x || node.y || node.z
+                  ? { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }
+                  : { x: 0, y: 0, z: distance }; 
+                Graph.cameraPosition(newPos, node, 1500);
+                setTimeout(() => { hoverNode = node; if (window.updateGraphStyles) window.updateGraphStyles(); }, 1500);
+                searchResults.style.display = 'none';
+                searchInput.value = '';
+                resetIdle();
+             };
+             searchResults.appendChild(div);
+           });
+        } else {
+           searchResults.style.display = 'none';
+        }
+      });
+      document.addEventListener('click', (e) => {
+         if (!e.target.closest('#ui-top-left')) {
+            searchResults.style.display = 'none';
+            document.getElementById('settings-panel').style.display = 'none';
+         }
+      });
+
+      function updateTheme(theme) {
+         if (theme === 'dark') {
+            document.body.style.backgroundImage = 'radial-gradient(circle, rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px)';
+            document.querySelectorAll('#legend-overlay, #search-input, #settings-btn, #search-results, #settings-panel, #fullscreen-btn, #graph-shape, #node-tooltip, #timeline-container').forEach(el => {
+                if(el) { el.style.background = 'rgba(30, 30, 30, 0.85)'; el.style.color = '#ddd'; el.style.borderColor = 'rgba(80, 80, 80, 0.8)'; }
+            });
+            document.querySelectorAll('.legend-label, .slider-row, .cb-row, .tooltip-desc').forEach(el => { if(el) el.style.color = '#ccc'; });
+            if (document.getElementById('nav-text')) {
+                document.getElementById('nav-text').style.background = 'rgba(30, 30, 30, 0.85)';
+                document.getElementById('nav-text').style.color = '#ccc';
+            }
+         } else {
+            document.body.style.backgroundImage = 'radial-gradient(circle, rgba(120, 120, 120, 0.35) 1.5px, transparent 1.5px)';
+            document.querySelectorAll('#legend-overlay, #search-input, #settings-btn, #search-results, #settings-panel, #fullscreen-btn, #graph-shape, #node-tooltip, #timeline-container').forEach(el => {
+                if(el) { el.style.background = 'rgba(255, 255, 255, 0.85)'; el.style.color = '#333'; el.style.borderColor = 'rgba(220, 220, 220, 0.8)'; }
+            });
+            document.querySelectorAll('.legend-label, .slider-row, .cb-row').forEach(el => { if(el) el.style.color = '#555'; });
+            document.querySelectorAll('.tooltip-desc').forEach(el => { if(el) el.style.color = '#555'; });
+            if (document.getElementById('nav-text')) {
+                document.getElementById('nav-text').style.background = 'rgba(255, 255, 255, 0.85)';
+                document.getElementById('nav-text').style.color = '#666';
+            }
+         }
+      }
+      try {
+        if (window.parent && window.parent.document) {
+            const htmlNode = window.parent.document.documentElement;
+            if (htmlNode.hasAttribute('data-theme') || htmlNode.hasAttribute('saved-theme')) {
+                updateTheme(htmlNode.getAttribute('saved-theme') || htmlNode.getAttribute('data-theme'));
+                const observer = new MutationObserver(mutations => {
+                   mutations.forEach(m => {
+                       if (m.attributeName === 'saved-theme' || m.attributeName === 'data-theme') 
+                          updateTheme(htmlNode.getAttribute('saved-theme') || htmlNode.getAttribute('data-theme'));
+                   });
+                });
+                observer.observe(htmlNode, { attributes: true });
+            }
+        }
+      } catch (e) {}
+
+      window.toggleTagFilter = function(tag) {
+        if (window.activeTag === tag) {
+          window.activeTag = null;
+          const items = document.getElementsByClassName('legend-item');
+          for (let item of items) item.style.opacity = '1.0';
+        } else {
+          window.activeTag = tag;
+          const items = document.getElementsByClassName('legend-item');
+          for (let item of items) {
+             item.style.opacity = item.id === 'legend-' + tag ? '1.0' : '0.4';
+          }
+        }
+        if (window.updateGraphStyles) window.updateGraphStyles();
+      };
+      
+      window.currentTimeline = 1.0;
+      document.getElementById('timeline-slider').addEventListener('input', e => {
+         window.currentTimeline = parseFloat(e.target.value);
+         if (window.updateGraphStyles) window.updateGraphStyles();
+      });
+      
+      const activeRipples = [];
+
+      const Graph = ForceGraph3D({ antialias: true, alpha: true }) 
+        (document.getElementById('3d-graph'))
+          .showNavInfo(false)
+          .graphData(gData)
+          .nodeResolution(32) 
+          .nodeRelSize(5) 
+          .nodeVal('size')
+          .nodeThreeObject(node => {
+            const group = new THREE.Group();
+            
+            const radius = 5 * Math.cbrt(node.size);
+            
+            const geometry = new THREE.SphereGeometry(radius, 16, 16);
+            const material = new THREE.MeshPhongMaterial({
+              color: tagColors[node.tag] || tagColors['страница'],
+              shininess: 40,
+              flatShading: false
+            });
+            const sphere = new THREE.Mesh(geometry, material);
+            group.add(sphere);
+
+            const wireMat = new THREE.MeshBasicMaterial({
+              color: 0xffffff,
+              wireframe: true,
+              transparent: true,
+              opacity: 0.05
+            });
+            const wireSphere = new THREE.Mesh(geometry, wireMat);
+            wireSphere.scale.setScalar(1.02);
+            group.add(wireSphere);
+
+            const sprite = new SpriteText(node.title);
+            const nodeColor = tagColors[node.tag] || tagColors['страница'];
+            
+            sprite.color = 'rgba(50, 50, 50, 1.0)'; 
+            sprite.backgroundColor = 'rgba(0, 0, 0, 0)'; 
+            sprite.padding = 2; 
+            sprite.borderRadius = 2; 
+            
+            sprite.textHeight = 3.5; 
+            sprite.position.y = -(radius + 4.5); 
+            sprite.fontFace = 'Inter';
+            
+            sprite.material.depthWrite = false;
+            sprite.material.depthTest = false;
+            sprite.material.transparent = true;
+            sprite.material.opacity = 0.5; 
+            sprite.renderOrder = 999;
+            group.add(sprite);
+
+            node.__sprite = sprite; 
+            node.__sphere = sphere;
+            node.__wireframe = wireSphere;
+            return group;
+          })
+          .linkColor(link => {
+            const sTime = link.source.birthTime || (typeof link.source !== 'object' ? 0 : link.source.birthTime);
+            const tTime = link.target.birthTime || (typeof link.target !== 'object' ? 0 : link.target.birthTime);
+            if (sTime > window.currentTimeline || tTime > window.currentTimeline) return 'rgba(0,0,0,0)';
+            
+            const isConnected = hoverNode && (link.source === hoverNode || link.target === hoverNode);
+            if (hoverNode) {
+               return isConnected ? 'rgba(50, 50, 50, 0.8)' : 'rgba(200, 200, 200, 0.15)';
+            } else if (window.activeTag) {
+               const sourceMatch = link.source && link.source.tag === window.activeTag;
+               const targetMatch = link.target && link.target.tag === window.activeTag;
+               return (sourceMatch || targetMatch) ? 'rgba(50, 50, 50, 0.6)' : 'rgba(200, 200, 200, 0.15)';
+            }
+            return 'rgba(150, 150, 150, 0.3)';
+          })
+          .linkDirectionalParticles(link => {
+            const sTime = link.source.birthTime || (typeof link.source !== 'object' ? 0 : link.source.birthTime);
+            const tTime = link.target.birthTime || (typeof link.target !== 'object' ? 0 : link.target.birthTime);
+            if (sTime > window.currentTimeline || tTime > window.currentTimeline) return 0;
+            
+            const showParticles = document.getElementById('particles-cb').checked;
+            if (!showParticles) return 0;
+            if (hoverNode && (link.source === hoverNode || link.target === hoverNode)) return 4;
+            if (window.activeTag && (link.source.tag === window.activeTag || link.target.tag === window.activeTag)) return 3;
+            return 0;
+          })
+          .linkDirectionalParticleWidth(2)
+          .linkDirectionalParticleSpeed(0.005)
+          .linkWidth(0.6) 
+          .backgroundColor('rgba(0,0,0,0)')
+          .onNodeClick(node => {
+            const currentTime = new Date().getTime();
+            if (lastClickedNode === node && currentTime - lastClickTime < 400) {
+              if (node.file) {
+                window.top.location.href = node.file;
+              }
+            } else {
+              const color = tagColors[node.tag] || tagColors['страница'];
+              const rippleGeo = new THREE.TorusGeometry(8, 0.4, 8, 32);
+              const rippleMat = new THREE.MeshBasicMaterial({
+                color: color, 
+                transparent: true, 
+                opacity: 1.0, 
+                depthWrite: false, 
+                side: THREE.DoubleSide
+              });
+              const ripple = new THREE.Mesh(rippleGeo, rippleMat);
+              ripple.scale.setScalar(0.1);
+              Graph.scene().add(ripple);
+              
+              activeRipples.push({
+                 mesh: ripple,
+                 node: node,
+                 progress: 0
+              });
+
+              const distance = 120; 
+              const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+
+              const newPos = node.x || node.y || node.z
+                ? { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }
+                : { x: 0, y: 0, z: distance }; 
+                
+              Graph.cameraPosition(
+                newPos, 
+                node,   
+                1500    
+              );
+            }
+            lastClickTime = currentTime;
+            lastClickedNode = node;
+          })
+          .onNodeRightClick(node => {
+            if (node.file) {
+              window.top.location.href = node.file;
+            }
+          })
+          .onNodeHover(node => {
+            document.getElementById('3d-graph').style.cursor = node && node.file ? 'pointer' : null;
+            
+            const tip = document.getElementById('node-tooltip');
+            if (node) {
+               tip.innerHTML = `
+                 <div class="tooltip-tag" style="background: ${tagColors[node.tag] || '#888'}; color: #fff;">#${node.tag}</div>
+                 <div class="tooltip-title">${node.title}</div>
+                 ${node.description ? '<div class="tooltip-desc">' + node.description + '</div>' : ''}
+               `;
+               tip.style.opacity = '1';
+               tip.style.left = mouseX + 'px';
+               tip.style.top = mouseY + 'px';
+            } else {
+               tip.style.opacity = '0';
+            }
+            
+            if (node !== hoverNode) {
+              hoverNode = node || null;
+              if (window.updateGraphStyles) window.updateGraphStyles();
+            }
+          });
+
+      window.updateGraphStyles = function() {
+        Graph.linkColor(Graph.linkColor());
+        Graph.linkDirectionalParticles(Graph.linkDirectionalParticles());
+        
+        gData.nodes.forEach(n => {
+          if (n.__sprite) {
+            if (n.birthTime > window.currentTimeline) {
+                 n.__targetOpacity = 0;
+                 n.__targetScale = 0;
+                 if (n.__sphere) n.__sphere.material.emissiveIntensity = 0;
+                 if (n.__wireframe) n.__wireframe.material.opacity = 0;
+                 return;
+            }
+            
+            const nodeColor = tagColors[n.tag] || tagColors['страница'];
+            const isHovered = (n === hoverNode);
+            const isNeighbor = hoverNode && hoverNode.neighbors.includes(n);
+            const isTagMatch = window.activeTag && n.tag === window.activeTag;
+            
+            if (hoverNode) {
+               if (isHovered || isNeighbor) {
+                 n.__sprite.color = '#fff';
+                 n.__sprite.backgroundColor = nodeColor;
+                 n.__targetOpacity = 1.0;
+                 n.__targetScale = isHovered ? 1.5 : 1.35;
+                 if (n.__sphere) {
+                   n.__sphere.material.emissive = new THREE.Color(nodeColor);
+                   n.__sphere.material.emissiveIntensity = 0.5;
+                   if (n.__wireframe) n.__wireframe.material.opacity = 0.4;
+                 }
+               } else {
+                 n.__sprite.color = 'rgba(50, 50, 50, 1.0)'; 
+                 n.__sprite.backgroundColor = 'rgba(0, 0, 0, 0)';
+                 n.__targetOpacity = 0.2;
+                 n.__targetScale = 1.0;
+                 if (n.__sphere) {
+                   n.__sphere.material.emissiveIntensity = 0;
+                   if (n.__wireframe) n.__wireframe.material.opacity = 0.05;
+                 }
+               }
+            } else if (window.activeTag) {
+               if (isTagMatch) {
+                 n.__sprite.color = '#fff';
+                 n.__sprite.backgroundColor = nodeColor;
+                 n.__targetOpacity = 1.0;
+                 n.__targetScale = 1.35;
+                 if (n.__sphere) {
+                   n.__sphere.material.emissive = new THREE.Color(nodeColor);
+                   n.__sphere.material.emissiveIntensity = 0.5;
+                   if (n.__wireframe) n.__wireframe.material.opacity = 0.4;
+                 }
+               } else {
+                 n.__sprite.color = 'rgba(50, 50, 50, 1.0)';
+                 n.__sprite.backgroundColor = 'rgba(0, 0, 0, 0)';
+                 n.__targetOpacity = 0.2;
+                 n.__targetScale = 1.0;
+                 if (n.__sphere) {
+                   n.__sphere.material.emissiveIntensity = 0;
+                   if (n.__wireframe) n.__wireframe.material.opacity = 0.05;
+                 }
+               }
+            } else {
+               n.__sprite.color = 'rgba(50, 50, 50, 1.0)'; 
+               n.__sprite.backgroundColor = 'rgba(0, 0, 0, 0)';
+               n.__targetOpacity = 0.5;
+               n.__targetScale = 1.0;
+               if (n.__sphere) {
+                 n.__sphere.material.emissiveIntensity = 0;
+                 if (n.__wireframe) n.__wireframe.material.opacity = 0.05;
+               }
+            }
+          }
+        });
+      };
+
+      function animateSmoothHover() {
+        if (gData && gData.nodes) {
+          const time = Date.now() / 1000;
+          gData.nodes.forEach(n => {
+            if (n.__sprite && n.__sprite.material) {
+              if (typeof n.__currentOpacity === 'undefined') {
+                n.__currentOpacity = 0.5;
+                n.__targetOpacity = 0.5;
+              }
+              if (typeof n.__currentScale === 'undefined' && n.__sprite.scale.x > 0 && n.__sprite.scale.y > 0) {
+                n.__currentScale = 1.0;
+                n.__targetScale = 1.0;
+                n.__baseScaleX = n.__sprite.scale.x; 
+                n.__baseScaleY = n.__sprite.scale.y;
+              }
+
+              n.__currentOpacity += (n.__targetOpacity - n.__currentOpacity) * 0.15;
+              n.__sprite.material.opacity = n.__currentOpacity;
+
+              if (typeof n.__currentScale !== 'undefined') {
+                n.__currentScale += (n.__targetScale - n.__currentScale) * 0.15;
+                n.__sprite.scale.set(n.__baseScaleX * n.__currentScale, n.__baseScaleY * n.__currentScale, 1);
+              }
+            }
+            if (n.__sphere) {
+              if (typeof n.__currentSphereScale === 'undefined') {
+                 n.__currentSphereScale = 1.0;
+              }
+              const targetSphere = (n.__targetScale === 0) ? 0.001 : (n.__targetScale > 1.0 ? 1.15 : 1.0);
+              n.__currentSphereScale += (targetSphere - n.__currentSphereScale) * 0.1;
+
+              const isActive = n.__targetScale > 1.0;
+              const speed = isActive ? 4.0 : 1.5;
+              const amplitude = isActive ? 0.05 : 0.02;
+              const phase = (n.x || 0) + (n.y || 0) + (n.size * 10);
+              
+              const pulse = amplitude * Math.sin(time * speed + phase);
+              const finalScale = n.__currentSphereScale + pulse;
+              
+              n.__sphere.scale.setScalar(finalScale);
+              if (n.__wireframe) n.__wireframe.scale.setScalar(finalScale * 1.02);
+            }
+          });
+          
+          for (let i = activeRipples.length - 1; i >= 0; i--) {
+            const rp = activeRipples[i];
+            rp.progress += 0.02; 
+            
+            if (rp.progress > 1.0) {
+               Graph.scene().remove(rp.mesh);
+               rp.mesh.geometry.dispose();
+               rp.mesh.material.dispose();
+               activeRipples.splice(i, 1);
+            } else {
+               rp.mesh.position.copy(rp.node);
+               const easeOut = 1 - Math.pow(1 - rp.progress, 3);
+               rp.mesh.scale.setScalar(0.1 + easeOut * 3.0);
+               rp.mesh.material.opacity = 1.0 - rp.progress;
+               if (Graph.camera()) {
+                 rp.mesh.quaternion.copy(Graph.camera().quaternion);
+               }
+            }
+          }
+        }
+        
+        const autoRotate = document.getElementById('auto-rotate-cb').checked;
+        if (autoRotate && isIdle && !hoverNode && !window.activeTag) {
+           const camPos = Graph.cameraPosition();
+           const radius = Math.hypot(camPos.x, camPos.z);
+           autoRotateAngle += Math.PI / 2500;
+           Graph.cameraPosition({
+             x: radius * Math.sin(autoRotateAngle),
+             z: radius * Math.cos(autoRotateAngle),
+             y: camPos.y
+           });
+        } else {
+           const camPos = Graph.cameraPosition();
+           autoRotateAngle = Math.atan2(camPos.x, camPos.z);
+        }
+
+        requestAnimationFrame(animateSmoothHover);
+      }
+      animateSmoothHover();
+
+      Graph.d3Force('charge').strength(-150); 
+      Graph.d3Force('link').distance(80);     
+
+      let useLayers = false;
+      const layerForces = {
+            'автор': 200,
+            'журнал': 100,
+            'проект': 0,
+            'публикация': -100,
+            'изданное': -200,
+            'страница': -300
+      };
+
+      Graph.d3Force('stratify', alpha => {
+        if (!useLayers) return;
+        gData.nodes.forEach(node => {
+          const targetY = layerForces[node.tag] || -300;
+          node.vy += (targetY - node.y) * alpha * 0.8; 
+        });
+      });
+
+      document.getElementById('graph-shape').addEventListener('change', e => {
+         useLayers = (e.target.value === 'layers');
+         if(useLayers) {
+            Graph.d3Force('link').distance(150);
+            document.getElementById('link-dist').value = 150;
+         } else {
+            Graph.d3Force('link').distance(80);
+            document.getElementById('link-dist').value = 80;
+         }
+         Graph.d3ReheatSimulation();
+      });
+
+      document.getElementById('link-dist').addEventListener('input', e => { 
+        Graph.d3Force('link').distance(+e.target.value); 
+        Graph.d3ReheatSimulation(); 
+      });
+      document.getElementById('charge-str').addEventListener('input', e => { 
+        Graph.d3Force('charge').strength(+e.target.value); 
+        Graph.d3ReheatSimulation(); 
+      });
+      document.getElementById('particles-cb').addEventListener('change', () => { if (window.updateGraphStyles) window.updateGraphStyles(); });
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      Graph.scene().add(ambientLight);
+
+      const dirLight = new THREE.DirectionalLight(0xffffff, 0.4);
+      dirLight.position.set(100, 200, 50);
+      Graph.scene().add(dirLight);
+
+      window.addEventListener('resize', () => {
+        Graph.width(window.innerWidth);
+        Graph.height(window.innerHeight);
+      });
+    }
+
+    initGraph();
+  </script>
+</body>
+</html>
