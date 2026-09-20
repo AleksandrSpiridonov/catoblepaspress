@@ -14,32 +14,6 @@ cover: "https://catoblepaspress.ru/images/biastape.webp"
 
 ![[biastape.webp]]
 
-## Заказать
-Выберите версию и оформите заказ. Если форма не открывается, напишите на [catoblepaspress@mail.ru](mailto:catoblepaspress@mail.ru) с темой «косая бейка».
-
-> [!success] Предзаказ завершён
-> Спасибо всем, кто поддержал издание и оформил предзаказ. На этой неделе книга отправится в типографию. Презентация состоится в двадцатых числах сентября — точную дату, место и подробности сообщим позже.
->
-> Если вы оформляли предзаказ, проверьте электронную почту, включая папку «Спам».
-
-### Печатная версия
-**490 ₽**    
-**Доставка**:   
-Почта России **350 ₽**  
-СДЭК **700 ₽**  
-### Электронная версия
-**350 ₽**    
-**Формат:** PDF
-
-> [!info] Как оформить заказ
-> Заполните форму — мы напишем вам и сообщим об оплате и получении книги.
-
-Перед отправкой формы ознакомьтесь с [[documents/privacy|Политикой обработки персональных данных]] и [[documents/personal-data-consent|Согласием на обработку персональных данных]].
-
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdEbOzuysovGTcVuT2_FwNurZ3S6g1zyGsdZLbjpg3fY5AlrA/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
-
-<a class="external-cta" href="https://www.litres.ru/book/marusya-navka/kosaya-beyka-74111291/?ysclid=mtldg74zmu871061559" target="_blank" rel="noopener noreferrer">Читать на Литрес</a>
-
 ## Выходные данные
 *Маруся Навка* Косая бейка. СПб: Катоблепас, 2026  
 ISBN 978-5-600-05479-0  
@@ -67,3 +41,32 @@ ISBN 978-5-600-05479-0
 
 > [!tip] Интервью с автором
 > Посмотрите или прочитайте [[interviews/marusya-navka-kosaya-beyka|интервью с Марусей Навкой]] о «косой бейке», стихах, музыке и театре.
+
+## Заказать
+
+Выберите версию книги и напишите на [catoblepaspress@mail.ru](mailto:catoblepaspress@mail.ru) с темой «косая бейка». Мы сообщим об оплате и получении книги.
+
+### Печатная версия
+**490 ₽**<br>
+**Доставка:** Почта России — **350 ₽**, СДЭК — **700 ₽**
+
+### Электронная версия
+**350 ₽**<br>
+**Формат:** PDF
+
+Перед заказом ознакомьтесь с [[documents/privacy|Политикой обработки персональных данных]] и [[documents/personal-data-consent|Согласием на обработку персональных данных]].
+
+<a class="external-cta" href="https://www.litres.ru/book/marusya-navka/kosaya-beyka-74111291/?ysclid=mtldg74zmu871061559" target="_blank" rel="noopener noreferrer">Читать на Литрес</a>
+
+## Где купить
+
+<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A2d7ad5a2f1a0acbb4cc0bee7e7304f2929aeb2d9e2ebfa2a7d6c966534698e50&amp;width=100%25&amp;height=513&amp;lang=ru_RU&amp;scroll=true"></script>
+
+Проверяйте наличие книги перед визитом:
+
+- [Wöd — Большая Морская улица, 45](https://yandex.ru/maps/?text=W%C3%B6d%2C%20Большая%20Морская%2045%2C%20Санкт-Петербург)
+- [Флёр / Fleur Vintage — Ковенский переулок, 22–24](https://yandex.ru/maps/-/CXAsEF3e)
+- [Хороший тигр — Садовая улица, 56](https://yandex.ru/maps/?text=Хороший%20тигр%2C%20Садовая%2056%2C%20Санкт-Петербург)
+- [Le Moniteur — Кадетская линия В. О., 31](https://yandex.ru/maps/?text=Le%20Moniteur%2C%20Кадетская%20линия%2031%2C%20Санкт-Петербург)
+- [Мистические бриоши Марии-Антуанетты — Средний проспект В. О., 46](https://yandex.ru/maps/?text=Мистические%20бриоши%20Марии-Антуанетты%2C%20Средний%20проспект%2046%2C%20Санкт-Петербург)
+- [Букинист ЦАП — улица Кропоткина, 19/8](https://yandex.ru/maps/-/CXAwyZP0)\n
