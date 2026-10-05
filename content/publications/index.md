@@ -5,4 +5,4 @@ aliases:
   - Публикации
 ---
 - [[archipov|Алексей Архипов]] — [[almighty|Всемогущий]]
-- [[asp|Александр Спиридонов-мл.]] — [[reports/kosaya-beyka-presentation|сшито. Отчёт о презентации «косой бейки»]]
+- [[asp|Александр Спиридонов-мл.]] — [[publications/reports/kosaya-beyka-presentation|сшито. Отчёт о презентации «косой бейки»]]

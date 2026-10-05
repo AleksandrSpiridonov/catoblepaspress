@@ -15,7 +15,7 @@ _[[medvedevartist|Евгений Медведев]] Город, 2018_
 > [!abstract] Сейчас в «Катоблепасе»
 >
 > - <strong><a href="./published/biastape#заказать" class="internal" data-metrika-goal="order_click">Заказать «косую бейку» Маруси Навки</a></strong> — тираж распродан, доступна PDF и epub версии. Открыт предзаказ на 2-ое издание
-> - **[[reports/kosaya-beyka-presentation|сшито — отчёт о презентации «косой бейки»]]** — фотографии, видео и отзывы гостей встречи в F5
+> - **[[publications/reports/kosaya-beyka-presentation|сшито — отчёт о презентации «косой бейки»]]** — фотографии, видео и отзывы гостей встречи в F5
 > - <strong><a href="./interviews/marusya-navka-kosaya-beyka" class="internal">Посмотреть и прочитать интервью с Марусей Навкой</a></strong> — о «косой бейке», стихах, музыке и театре
 > - <strong><a href="./journal/" class="internal" data-metrika-goal="journal_click">Читать стохастический журнал</a></strong> — поэзия, проза, эссе, визуальное искусство, кино и музыка
 > - <strong><a href="./projects/filmclub" class="internal" data-metrika-goal="participation_click">Обсудить <em>Sans Soleil</em> Криса Маркера в киноклубе 10 октября 2026 года</a></strong> — онлайн-встреча в 19:00 МСК

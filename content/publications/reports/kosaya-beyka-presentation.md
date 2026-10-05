@@ -2,6 +2,8 @@
 title: сшито
 description: Отчёт о презентации «косой бейки» Маруси Навки и выступлении группы ЗАГС в пространстве F5 24 сентября 2026 года
 date: 2026-10-02
+aliases:
+  - reports/kosaya-beyka-presentation
 author: Александр Спиридонов-мл.
 tags:
   - косая бейка
@@ -23,7 +25,7 @@ tags:
 
 Сам F5 — место исключительное для культурного ландшафта восточной Европы. Фестиваль «Страдающие аборигены эпохи технофеодализма» в прошлом году собирал эмбиент, фри джаз, нойз, в этом можно было услышать импровизационный кружок ИК-20, хеппенинг для скрипок и кассетных диктофонов на «воблости в августе», нойз-индастриал проект «Проспект Ветеранов», джазовый грув «[Tundra Art Ensemble](https://music.yandex.ru/artist/8990793)», постпанк-дарквейв-индастриал-нойз группа «[черночь](https://music.yandex.ru/artist/21071140)», кассетные луп импровизации от «[Последнего изгнанника](https://music.yandex.ru/artist/21283931)» и трио [the popcorners!](https://music.yandex.ru/artist/24194594) График шума согласован с соседями! Также в F5 в 2022 году проходила выставка «Свод» керамистки [Валерии Бондаренко](https://povedaii.com/profile), в 2025 году коллективная выставка «Мне 20 лет» под кураторством Анны Кульминской, в апреле 2026 года прошла коллективная выставка резидентов площадки в рамках трёхдневного фестиваля «Коллекция странностей F5». А из поэтического в июле здесь были «[Нормальные стихи](https://t.me/norm_stihi_hi_hi)» и «[поэзия здесь и сейчас](https://t.me/poesiazdes)», например.
 
-<a href="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/signing.webp"><img src="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/signing.webp" alt="Маруся Навка подписывает экземпляры «косой бейки»" loading="lazy" width="1440" height="1920"></a>
+<a href="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/signing.webp"><img style="max-width:100%;height:auto" src="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/signing.webp" alt="Маруся Навка подписывает экземпляры «косой бейки»" loading="lazy" width="1440" height="1920"></a>
 
 *Фотография издательства «Катоблепас»*
 
@@ -73,15 +75,15 @@ tags:
 
 > Я был просто в восторге. Мне все очень понравилось. Мне кажется, я отлично провел время. Несмотря на то, что у меня было очень хреново из-за того, что я почти не спал. И как музыканты играли, и как выглядели, музыка, тексты, состав инструментов, атмосфера, место. Нам все очень понравилось. Ну и да, особенно мне понравился формат. Мне понравился формат, что это не большой концерт в каком-то клубе, а такой типа а-ля квартирник. Я так понял, там же в основном были только люди, с которыми музыканты и автор так или иначе знакомы и вы их сами туда пригласили? Или там были люди с улицы? Нет, один парень с улицы там точно был. Он познакомился со мной и Даней, когда мы стояли там перед входом.
 
-<a href="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-01.webp"><img src="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-01.webp" alt="Группа ЗАГС на презентации «косой бейки» — фотография 1" loading="lazy" width="1600" height="1066"></a>
+<a href="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-01.webp"><img style="max-width:100%;height:auto" src="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-01.webp" alt="Группа ЗАГС на презентации «косой бейки» — фотография 1" loading="lazy" width="1600" height="1066"></a>
 
-<a href="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-02.webp"><img src="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-02.webp" alt="Группа ЗАГС на презентации «косой бейки» — фотография 2" loading="lazy" width="1280" height="853"></a>
+<a href="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-02.webp"><img style="max-width:100%;height:auto" src="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-02.webp" alt="Группа ЗАГС на презентации «косой бейки» — фотография 2" loading="lazy" width="1280" height="853"></a>
 
-<a href="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-03.webp"><img src="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-03.webp" alt="Группа ЗАГС на презентации «косой бейки» — фотография 3" loading="lazy" width="853" height="1280"></a>
+<a href="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-03.webp"><img style="max-width:100%;height:auto" src="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-03.webp" alt="Группа ЗАГС на презентации «косой бейки» — фотография 3" loading="lazy" width="853" height="1280"></a>
 
-<a href="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-04.webp"><img src="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-04.webp" alt="Группа ЗАГС на презентации «косой бейки» — фотография 4" loading="lazy" width="1280" height="853"></a>
+<a href="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-04.webp"><img style="max-width:100%;height:auto" src="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-04.webp" alt="Группа ЗАГС на презентации «косой бейки» — фотография 4" loading="lazy" width="1280" height="853"></a>
 
-<a href="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-05.webp"><img src="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-05.webp" alt="Группа ЗАГС на презентации «косой бейки» — фотография 5" loading="lazy" width="1280" height="853"></a>
+<a href="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-05.webp"><img style="max-width:100%;height:auto" src="https://media.catoblepaspress.ru/reports/kosaya-beyka-2026-09-24/concert-05.webp" alt="Группа ЗАГС на презентации «косой бейки» — фотография 5" loading="lazy" width="1280" height="853"></a>
 
 *Фотографии [Кирилла Петрова](https://t.me/photografiruyu_nu_i_tut_demo_mu)*
 
