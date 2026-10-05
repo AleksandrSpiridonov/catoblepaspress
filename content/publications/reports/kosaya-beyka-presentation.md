@@ -6,7 +6,6 @@ aliases:
   - reports/kosaya-beyka-presentation
 author: Александр Спиридонов-мл.
 tags:
-  - косая бейка
   - презентация
 ---
 
@@ -102,5 +101,4 @@ tags:
 Также незамедлительно открываем предзаказ на второе ненумерованное издание «косой бейки» и по-прежнему считаем почту самым надёжным способом коммуникации — [ungh@catoblepaspress.ru](mailto:ungh@catoblepaspress.ru).
 
 Croyez, chers amis, à mes sentiments les plus affectueux.
-
-Ваш Александр
+Ваш [[asp|Александр]]
