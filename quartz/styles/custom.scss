@@ -1,6 +1,14 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+.report-photo-link {
+  display: block;
+
+  > .external-icon {
+    display: none;
+  }
+}
+
 @media all and ($mobile) {
   .page:has(.artist-gallery) > #quartz-body {
     grid-template-columns: minmax(0, 1fr);
