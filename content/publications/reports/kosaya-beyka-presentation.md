@@ -100,5 +100,5 @@ tags:
 
 Также незамедлительно открываем предзаказ на второе ненумерованное издание «косой бейки» и по-прежнему считаем почту самым надёжным способом коммуникации — [ungh@catoblepaspress.ru](mailto:ungh@catoblepaspress.ru).
 
-Croyez, chers amis, à mes sentiments les plus affectueux.
+Croyez, chers amis, à mes sentiments les plus affectueux.<br>
 Ваш [[asp|Александр]]
